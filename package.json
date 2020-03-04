@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "@yoge_shource is yooooo",
   "scripts": {
-    "storybook": "NODE_ENV=development start-storybook -p 9001",
     "prestart": "npm install && npm run build",
     "start": "npm-run-all --parallel storybook build:watch",
     "test": "jest --coverage",
@@ -15,7 +14,12 @@
     "publish-packages": "lerna publish",
     "prepublish-packages": "npm run build",
     "precommit": "npm run test",
-    "postinstall": "npm run bootstrap"
+    "postinstall": "npm run bootstrap",
+    "build-storybook": "build-storybook -s public",
+    "deploy-gh-storybook": "build-storybook -c .storybook",
+    "predeploy": "npm run deploy-gh-storybook",
+    "deploy": "gh-pages -d storybook-static",
+    "storybook": "start-storybook -p 9009 -s public"
   },
   "repository": {
     "type": "git",
@@ -64,6 +68,7 @@
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^10.0.0",
+    "gh-pages": "^2.2.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "styled-components": "^5.0.1",
