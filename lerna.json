@@ -1,0 +1,15 @@
+{
+  "lerna": "3.20.0",
+  "packages": ["packages/*"],
+  "command": {
+    "version": {
+      "ignoreChanges": [
+        "**/*.md",
+        "**/*.story.js",
+        "**/*.test.js",
+        "**/__snapshots__/**"
+      ]
+    }
+  },
+  "version": "independent"
+}

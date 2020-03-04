@@ -1,0 +1,72 @@
+{
+  "name": "@yoge_shource/lerna-starter",
+  "version": "0.0.1",
+  "description": "@yoge_shource is yooooo",
+  "scripts": {
+    "storybook": "NODE_ENV=development start-storybook -p 9001",
+    "prestart": "npm install && npm run build",
+    "start": "npm-run-all --parallel storybook build:watch",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna exec --parallel -- babel src -d dist --ignore src/__tests__/,src/__stories__/,src/__wireframe__/**",
+    "build:watch": "npm run build -- --watch",
+    "export-static-storybook": "build-storybook -c .storybook -o .out",
+    "publish-packages": "lerna publish",
+    "prepublish-packages": "npm run build",
+    "precommit": "npm run test",
+    "postinstall": "npm run bootstrap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://dvyogesh.github.io/lerna-starter/lerna-starter.git"
+  },
+  "author": "Yogesh DV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://dvyogesh.github.io/lerna-starter/lerna-starter/issues"
+  },
+  "homepage": "http://dvyogesh.github.io/lerna-starter",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.3.14",
+    "@storybook/react": "^5.3.14",
+    "all-contributors-cli": "^5.10.2",
+    "babel-core": "^7.0.0-bridge",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.0.0",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.12.1",
+    "eslint-config-react-app": "^3.0.6",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.4",
+    "glob-loader": "^0.3.0",
+    "jest": "^24.0.0",
+    "lerna": "^3.20.0",
+    "lint-staged": "^8.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.16.1"
+  },
+  "lint-staged": {
+    "*.{js,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.1",
+    "@testing-library/user-event": "^10.0.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "styled-components": "^5.0.1",
+    "styled-map": "^3.3.0"
+  }
+}
