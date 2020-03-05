@@ -5,9 +5,10 @@
   "main": "dist/index.js",
   "module": "src/index.js",
   "author": "Yogesh DV",
+  "private": false,
   "dependencies": {
-    "@yoge_shource/button": "^0.1.0",
-    "@yoge_shource/counter": "^0.1.0"
+    "@yoge_shource/button": "^0.1.1",
+    "@yoge_shource/counter": "^0.1.1"
   },
   "peerDependencies": {
     "react": "^16.0.0",
