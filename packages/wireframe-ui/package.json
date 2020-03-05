@@ -1,5 +1,5 @@
 {
-  "name": "@yoge_shource/wireframe-ui",
+  "name": "@yoge-shource/wireframe-ui",
   "version": "1.0.1",
   "description": "Example Wireframe UI",
   "main": "dist/index.js",
@@ -17,5 +17,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "8754f524b9800d46dcbf796a641ff96e5a4ca58c"
+  "gitHead": "42ca3e2e3e1c1069597b68bebee80337e94e3f51"
 }

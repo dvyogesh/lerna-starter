@@ -1,7 +1,8 @@
 {
-  "name": "@yoge_shource/lerna-starter",
+  "name": "@yoge-shource/lerna-starter",
   "version": "0.0.1",
   "description": "@yoge_shource is yooooo",
+  "main": "index.js",
   "scripts": {
     "prestart": "npm install && npm run build",
     "start": "npm-run-all --parallel storybook build:watch",
