@@ -7,8 +7,8 @@
   "author": "Yogesh DV",
   "private": false,
   "dependencies": {
-    "@yoge_shource/button": "^0.1.1",
-    "@yoge_shource/counter": "^0.1.1"
+    "@yoge-shource/button": "^0.1.2",
+    "@yoge-shource/counter": "^0.1.2"
   },
   "peerDependencies": {
     "react": "^16.0.0",

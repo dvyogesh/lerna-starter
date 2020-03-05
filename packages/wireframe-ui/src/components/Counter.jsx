@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Counter from '@yoge_shource/counter';
+import Counter from '@yoge-shource/counter';
 
 import { Button } from '../';
 

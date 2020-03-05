@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import styledMap from 'styled-map';
-import Button from '@yoge_shource/button';
+import Button from '@yoge-shource/button';
 
 const StyledButton = styled.button`
   font-size: 16px;
