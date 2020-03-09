@@ -9,7 +9,7 @@ const CarouselMainContainer = styled.div`
         display:flex;
         overflow: scroll;
         .carousel-item{
-            flex: 0 0 20%;
+            flex: 0 0 ${props => 100 / props.numberOfCardsToShow}%;
         }
         img{
             max-width:100%;
