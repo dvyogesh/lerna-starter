@@ -1,8 +1,7 @@
 
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import Counter from '../';
-import * as stories from './counter.story.jsx';
 
 <Meta title="Design System|Counter" component={Counter} />
 
@@ -11,9 +10,21 @@ import * as stories from './counter.story.jsx';
 ## Displays an image that represents a user or organization
 
 Use an Counter for attributing actions or content to specific users. The user's name should _always_ be present when using Counter – either printed beside the Counter or in a tooltip.
-<Story name="standard">
-   {stories.basic()}
+<Preview>
+    <Story name="standard">
+  <Counter>
+   {({ increase, decrease, count }) => (
+       <div>
+         <button onClick={decrease}>-</button>
+         <div>{count}</div>
+         <button onClick={increase}>+</button>
+       </div>
+     )}
+   </Counter>
 </Story>
+</Preview>
+
+<Props of={Counter} />
 
 ## Basic
 
@@ -29,3 +40,68 @@ Use an Counter for attributing actions or content to specific users. The user's 
    </Counter>
 </Story>
 
+### Sizes
+
+4 sizes are supported.
+<Story name="sizes">
+  <div>
+     <Counter>
+   {({ increase, decrease, count }) => (
+       <div>
+         <button onClick={decrease}>-</button>
+         <div>{count}</div>
+         <button onClick={increase}>+</button>
+       </div>
+     )}
+   </Counter>
+  </div>
+</Story>
+
+### Default Values
+
+When no image is supplied to the `src` prop, Counter displays initials. Counter should be used sparingly in situations without access to images.
+<Story name="initials">
+  <div>
+    <Counter>
+   {({ increase, decrease, count }) => (
+       <div>
+         <button onClick={decrease}>-</button>
+         <div>{count}</div>
+         <button onClick={increase}>+</button>
+       </div>
+     )}
+   </Counter>
+  </div>
+</Story>
+
+### Loading
+
+The loading state is used when the image or username is, well, loading.
+<Story name="loading">
+  <div>
+     <Counter>
+   {({ increase, decrease, count }) => (
+       <div>
+         <button onClick={decrease}>-</button>
+         <div>{count}</div>
+         <button onClick={increase}>+</button>
+       </div>
+     )}
+   </Counter>
+  </div>
+</Story>
+
+### Playground
+
+Experiment with this story with Knobs addon in Canvas mode.
+<Story name="knobs" parameters={{ decorators: [withKnobs] }}>
+   <Counter>
+   {({ increase, decrease, count }) => (
+       <div>
+         <button onClick={decrease}>-</button>
+         <div>{count}</div>
+         <button onClick={increase}>+</button>
+       </div>
+     )}
+   </Counter>
+</Story>

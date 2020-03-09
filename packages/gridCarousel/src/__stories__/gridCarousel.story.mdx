@@ -1,0 +1,29 @@
+
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import GridCarousel from '../';
+import gridCarouselMockData from '../../../../public/__mock__/gridCarouselMockData'
+import CarouselItem from '../components/CarouselItem'
+import CarouselStoryWrapper from './styles';
+
+<Meta title="Design System|GridCarousel" component={GridCarousel} />
+
+# GridCarousel
+
+## Displays an image that represents a user or organization
+
+## standard
+
+Use an GridCarousel for attributing actions or content to specific users. The user's name should _always_ be present when using GridCarousel – either printed beside the GridCarousel or in a tooltip.
+<Preview>
+  <Story name="standard">
+    <CarouselStoryWrapper>
+      <GridCarousel 
+        itemComponent={CarouselItem}
+        carouselData={gridCarouselMockData}
+        />
+    </CarouselStoryWrapper>
+</Story>
+</Preview>
+
+<Props of={GridCarousel} />
