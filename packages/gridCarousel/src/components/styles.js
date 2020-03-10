@@ -6,13 +6,31 @@ const CarouselMainContainer = styled.div`
         overflow: hidden;
     }
     .carousel-row {
+        scroll-behavior: smooth;
         display:flex;
         overflow: scroll;
+        -ms-overflow-style: none;
+        ::-webkit-scrollbar {
+            display: none;
+          }
         .carousel-item{
             flex: 0 0 ${props => 100 / props.numberOfCardsToShow}%;
         }
         img{
             max-width:100%;
+        }
+    }
+    .scrollbar-panel{
+        position: relative;
+        background-color: rgba(127, 127, 127, 0.38);
+        height: 5px;
+        .scrollbar{
+            position: absolute;
+            left:0;
+            top: 0;
+            width:5%;
+            height: 5px;
+            background-color: red;
         }
     }
 `;

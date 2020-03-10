@@ -11,29 +11,40 @@ const GridCarousel = ({ ...props }) => {
         numberOfItemToScroll = 4,
         numberOfCardsToShow,
         customProps,
-        hideArrowsOnEnd = false
+        hideArrowsOnEnd = false,
+        customScrollbar
 
     } = props
     const carouselRowRef = useRef();
     const [showRightArrow, setShowRightArrow] = useState(false)
     const [showLeftArrow, setShowLeftArrow] = useState(false)
+    const scrollBarRef = useRef()
 
     const scroll = direction => {
         const { current } = carouselRowRef
         const scrollWidth = (current.scrollWidth / carouselData.length) * numberOfItemToScroll
         current.scrollLeft += scrollWidth * direction
         if (!hideArrowsOnEnd) {
-            isReachedLeftEnd()
-            isReachedRightEnd()
+            setTimeout(()=>{
+                isReachedLeftEnd()
+                isReachedRightEnd()
+            }, 800)
+            
         }
+    }
 
-        console.log(direction)
+    const moveScrollBar = () => {
+        const scrollbar = scrollBarRef.current;
+        const { current: { scrollLeft, scrollWidth, offsetWidth } } = carouselRowRef;
+        const scrollbarPercent = scrollLeft / scrollWidth;
+        const scrollbarPosition = scrollbarPercent * offsetWidth
+        if (scrollbar && scrollbar.style) scrollbar.style.left = `${scrollbarPosition}px`
     }
 
     const isReachedLeftEnd = () => {
         const { current } = carouselRowRef;
         (current.scrollLeft === 0) ? setShowLeftArrow(false) :
-        setShowLeftArrow(true)
+            setShowLeftArrow(true)
 
 
     }
@@ -54,16 +65,38 @@ const GridCarousel = ({ ...props }) => {
             carouselData.length > numberOfCardsToShow ? setShowRightArrow(true) :
                 setShowRightArrow(false)
         }
+        const createScrollbar = () => {
+            const { current } = scrollBarRef
+            const scrollbarWidth = dynamicScrollbarwidth()
+           
+            if (current && scrollbarWidth /
+                carouselRowRef.current.offsetWidth < 1) {
+
+                current.style.width = `${scrollbarWidth}px`
+            }
+        }
+        const dynamicScrollbarwidth = () => {
+            const { current: { offsetWidth, scrollWidth } } = carouselRowRef;
+            const visibleRatio = offsetWidth / scrollWidth
+            return visibleRatio * offsetWidth;
+        }
         checkRightEndOnMount()
         isReachedLeftEnd()
+        if (customScrollbar) createScrollbar()
     }, [carouselData.length, numberOfItemToScroll])
 
+    const settings = {
+        numberOfCardsToShow
+    }
+
     return (
-        <CarouselMainContainer
-            numberOfCardsToShow={numberOfCardsToShow}>
+        <CarouselMainContainer {...settings}>
             <p>GridCarousel</p>
             <div className="carousel-row-wrapper">
-                <div className="carousel-row" ref={carouselRowRef}>
+                <div
+                    className="carousel-row"
+                    ref={carouselRowRef}
+                    onScroll={moveScrollBar}>
                     {
                         carouselData.length > 0 &&
                         carouselData.map((item, itemKey) => (
@@ -96,6 +129,17 @@ const GridCarousel = ({ ...props }) => {
                 }
 
             </div>
+            {
+                customScrollbar && (
+                    <div className="custom-scrollbar">
+                        <div className="scrollbar-panel">
+                            <div
+                                className="scrollbar"
+                                ref={scrollBarRef} />
+                        </div>
+                    </div>
+                )
+            }
 
 
         </CarouselMainContainer>
@@ -136,7 +180,8 @@ GridCarousel.defaultProps = {
       Supply a `username` and omit `src` to see what this looks like.
       */
     username: 'PropTypes.string',
-    hideArrowsOnEnd: false
+    hideArrowsOnEnd: false,
+    customScrollbar: true
 
 };
 
