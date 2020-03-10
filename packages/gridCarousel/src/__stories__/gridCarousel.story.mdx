@@ -1,18 +1,18 @@
 
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import GridCarousel from '../';
 import gridCarouselMockData from '../../../../public/__mock__/gridCarouselMockData'
 import CarouselItem from '../components/CarouselItem'
 import CarouselStoryWrapper from './styles';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 
 <Meta title="Design System|GridCarousel" component={GridCarousel} />
 
 # GridCarousel
 
-## Displays an image that represents a user or organization
 
-## standard
+## standard 
 
 Use an GridCarousel for attributing actions or content to specific users. The user's name should _always_ be present when using GridCarousel – either printed beside the GridCarousel or in a tooltip.
 <Preview>
@@ -27,3 +27,65 @@ Use an GridCarousel for attributing actions or content to specific users. The us
 </Preview>
 
 <Props of={GridCarousel} />
+
+<Story name="Second way of integration"></Story>
+
+## Second way of integration
+
+In this second way instedOf passing `itemComponent` prop, we can loop our component in side `<GridCarousel>` like below.
+
+<SyntaxHighlighter>
+  <div>
+    {
+    `<GridCarousel carouselData={gridCarouselMockData} >
+      {
+        gridCarouselMockData.length > 0 && 
+          gridCarouselMockData.map((item, itemKey) => (
+            <div className="carousel-item">
+                <CarouselItem item={item}/>
+            </div>
+        ))
+      }
+    </GridCarousel>`
+    }
+  </div>
+</SyntaxHighlighter>
+
+
+<Preview>
+  <GridCarousel carouselData={gridCarouselMockData}>
+    {
+    gridCarouselMockData.length > 0 && 
+      gridCarouselMockData.map((item, itemKey) => (
+        <div
+            key={`${itemKey + 1}_gc`}
+            className="carousel-item">
+            <CarouselItem item={item}/>
+        </div>
+    ))
+    }
+  </GridCarousel>
+</Preview>
+
+
+
+<Props of={GridCarousel} />
+
+## hide custom scrollbar
+
+To hide custom scrollbar pass <span style={{ color: "#1EA7FD"}}>customScrollbar </span> prop as <span style={{ color:'#1EA7FD'}}>false</span> `customScrollbar={false}`
+
+<Preview>
+  <Story name="hide custom scrollbar">
+    <CarouselStoryWrapper>
+      <GridCarousel 
+        itemComponent={CarouselItem}
+        carouselData={gridCarouselMockData}
+        customScrollbar={false}
+        />
+    </CarouselStoryWrapper>
+</Story>
+</Preview>
+
+<Props of={GridCarousel} />
+

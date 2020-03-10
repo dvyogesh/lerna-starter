@@ -1,7 +1,6 @@
 import React from 'react';
 import CarouselItem from '../components/CarouselItem'
 import gridCarouselMockData from '../../../../public/__mock__/gridCarouselMockData'
-import CarouselStoryWrapper from './styles';
 import GridCarousel from '..';
 
 export default {
@@ -9,33 +8,20 @@ export default {
 
   parameters: {
     component: GridCarousel,
-    componentSubtitle: 'Displays an image that represents a user or organization',
+    componentSubtitle: `GridCarousel  is a powerful and multi-functional lightweight, 
+    flexible ES6 JavaScript slider/carousel library that helps you create responsive and touch-enabled sliders with fast and performant CSS3 transitions.
+    it helps you create a highly customizable, fully responsive, mobile (only mobile) swipe-friendly content carousel/slider with lots of useful functionalities for modern web/mobile designs.`
   },
 };
 
 
 export const basic = () => (
-  <CarouselStoryWrapper>
     <GridCarousel
       itemComponent={CarouselItem}
       carouselData={gridCarouselMockData}
     />
-        
-  </CarouselStoryWrapper>
 );
-
-export const basick = () => (
-    <div>
-      <GridCarousel>
-          
-      </GridCarousel>
-    </div>
-  ); 
 
 basic.story = {
   parameters: { docs: { storyDescription: '4 sizes are supported.' } },
 };
-
-basick.story = {
-    parameters: { docs: { storyDescription: '4 sizes are supported.' } },
-  };

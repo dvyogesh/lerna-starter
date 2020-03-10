@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { CarouselMainContainer } from './styles';
 import Arrows from './Arrows';
@@ -12,7 +12,8 @@ const GridCarousel = ({ ...props }) => {
         numberOfCardsToShow,
         customProps,
         hideArrowsOnEnd = false,
-        customScrollbar
+        customScrollbar,
+        children
 
     } = props
     const carouselRowRef = useRef();
@@ -98,7 +99,7 @@ const GridCarousel = ({ ...props }) => {
                     ref={carouselRowRef}
                     onScroll={moveScrollBar}>
                     {
-                        carouselData.length > 0 &&
+                       !children && carouselData.length > 0 ?
                         carouselData.map((item, itemKey) => (
                             <div
                                 key={`${itemKey + 1}_gc`}
@@ -109,6 +110,8 @@ const GridCarousel = ({ ...props }) => {
                                 />
                             </div>
                         ))
+                        :
+                        <Fragment>{children}</Fragment>
                     }
                 </div>
                 {
@@ -130,7 +133,7 @@ const GridCarousel = ({ ...props }) => {
 
             </div>
             {
-                customScrollbar && (
+                customScrollbar === true && (
                     <div className="custom-scrollbar">
                         <div className="scrollbar-panel">
                             <div
