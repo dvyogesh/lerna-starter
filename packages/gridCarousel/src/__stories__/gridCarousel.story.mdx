@@ -2,28 +2,82 @@
 import { Meta, Story, Preview, Props, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import GridCarousel from '../';
-import gridCarouselMockData from '../../../../public/__mock__/gridCarouselMockData'
+import gridCarouselMockData from '../../../../public/__mock__/gridCarouselMockData';
+import {StyledMainPara, HeadingFourWrapper, StyledSubPara} from '../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../public/jsUtil/GlobalWrappers';
 import CarouselItem from '../components/CarouselItem'
 import CarouselStoryWrapper from './styles';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 <Meta title="Design System|GridCarousel" component={GridCarousel} />
 
-# GridCarousel
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 
 
-## standard 
+<Story name="Introduction" />
 
-Use an GridCarousel for attributing actions or content to specific users. The user's name should _always_ be present when using GridCarousel – either printed beside the GridCarousel or in a tooltip.
+# Grid Carousel / slider
+
+<StyledMainPara>
+  GridCarousel is  a powerful and multi-functional lightweight,
+   flexible ES6 JavaScript slider/carousel library that helps you create 
+   responsive and touch-enabled sliders with fast and performant CSS3 transitions. 
+   it helps you create a highly customizable, fully responsive, mobile (only mobile)
+    swipe-friendly content carousel/slider with lots of useful functionalities 
+    for modern web/mobile designs.
+    <br/>
+  Mainly Every <code>div</code> has class so we can overide by using any parent class of app accoriding to 
+    requird design and responsive using<code> @media </code>query 
+</StyledMainPara>
+
+<HeadingFourWrapper>To install Grid carousel/slider</HeadingFourWrapper>
+
+<SyntaxHighlighter>
+  {`npm i @yoge-shource/grid-carousel-react -S`}
+</SyntaxHighlighter>
+
+<HeadingFourWrapper>Use by import like this</HeadingFourWrapper>
+
+<CodeWrapper>
+  <div className="codeIn">
+    {`
+      import GridCarousel from '@yoge-shource/grid-carousel-react'
+    `}
+    {`
+      <GridCarousel
+        itemComponent={CarouselItem} // your component
+        carouselData={gridCarouselMockData}
+      />
+    `}
+  </div>
+</CodeWrapper>
+
+<HeadingFourWrapper>Sample looks like this</HeadingFourWrapper>
+
+<GridCarousel
+  itemComponent={CarouselItem}
+  carouselData={gridCarouselMockData}
+/>
+
+
+<Story name="First way of integration" />
+
+## First way of integration 
+
+<StyledSubPara>
+  In first way of integration, We need to pass <code>itemComponent</code> and <code>carouselData</code>
+  as props to <code>GridCarousel</code>, then GridCarousel will take this component and loop this component using <code>carouselData</code>.
+
+</StyledSubPara>
+## create alert box
 <Preview>
-  <Story name="standard">
     <CarouselStoryWrapper>
       <GridCarousel 
         itemComponent={CarouselItem}
         carouselData={gridCarouselMockData}
         />
     </CarouselStoryWrapper>
-</Story>
 </Preview>
 
 <Props of={GridCarousel} />
@@ -34,10 +88,10 @@ Use an GridCarousel for attributing actions or content to specific users. The us
 
 In this second way instedOf passing `itemComponent` prop, we can loop our component in side `<GridCarousel>` like below.
 
-<SyntaxHighlighter>
+<SyntaxHighlighter style={docco}>
   <div>
-    {
-    `<GridCarousel carouselData={gridCarouselMockData} >
+  {`
+    <GridCarousel carouselData={gridCarouselMockData} >
       {
         gridCarouselMockData.length > 0 && 
           gridCarouselMockData.map((item, itemKey) => (
@@ -46,8 +100,8 @@ In this second way instedOf passing `itemComponent` prop, we can loop our compon
             </div>
         ))
       }
-    </GridCarousel>`
-    }
+    </GridCarousel>
+  `} 
   </div>
 </SyntaxHighlighter>
 
