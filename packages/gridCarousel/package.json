@@ -1,6 +1,6 @@
 {
   "name": "@yoge-shource/grid-carousel-react",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Example Button Component",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -13,5 +13,4 @@
   "publishConfig": {
     "access": "public"
   }
-
 }
