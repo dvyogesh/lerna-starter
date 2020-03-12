@@ -1,0 +1,84 @@
+
+import { Meta, Preview } from '@storybook/addon-docs/blocks';
+import GridCarousel from '../../';
+import gridCarouselMockData from '../../../../../public/__mock__/gridCarouselMockData';
+import { StyledSubPara, MessageWrappeStyle } from '../../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
+import CarouselItem from '../../components/CarouselItem';
+import Arrows from '../../components/Arrows';
+
+<Meta title="Custom Arrows  GridCarousel" component={GridCarousel} />
+
+## Custom Arrows
+
+<StyledSubPara>
+  To Customize Arrows or to add own arrows, need to pass <code>customArrows</code> prop.
+</StyledSubPara>
+
+<MessageWrappeStyle>
+  <code>customArrows</code> prop should be Object
+</MessageWrappeStyle>
+
+<CodeWrapper>
+  <div className="codeIn">
+  {`
+   import GridCarousel from '@yoge-shource/grid-carousel-react
+   
+   import Arrow from '---your arrow---'
+   
+    First Way
+    
+    <GridCarousel
+      itemComponent={CarouselItem} // your component
+      carouselData={gridCarouselMockData}
+      // --- here ---
+      customArrows={{
+          leftArrow: Arrows, // your Arrow component
+          leftArrowProps: {left:'right', square:'square'},  // your Arrow component props
+          rightArrow: Arrows, // your Arrow component props
+          rightArrowProps:{right:'right', square:'square'} // your Arrow component props
+        }
+      }
+    />
+    
+    ---- OR ---- 
+    Second Way
+    
+    <GridCarousel
+     carouselData={gridCarouselMockData} 
+     // --- here ---
+     customArrows={{
+          leftArrow: Arrows,
+          leftArrowProps: {left:'right', square:'square'},  
+          rightArrow: Arrows,
+          rightArrowProps:{right:'right', square:'square'}
+        }
+      }
+    >
+      {
+        gridCarouselMockData.length > 0 && 
+          gridCarouselMockData.map((item, itemKey) => (
+            <div className="carousel-item">
+                <CarouselItem item={item}/> // your component
+            </div>
+        ))
+      }
+    </GridCarousel>
+  `} 
+  </div>
+</CodeWrapper>
+
+<Preview>
+  <GridCarousel
+    itemComponent={CarouselItem}
+    carouselData={gridCarouselMockData}
+    customArrows={{
+      leftArrow: Arrows,
+      leftArrowProps: {left:'right', square:'square'},  
+      rightArrow: Arrows,
+      rightArrowProps:{right:'right', square:'square'}
+    }
+    }
+  />
+</Preview>
+

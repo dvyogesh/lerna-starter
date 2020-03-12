@@ -3,19 +3,20 @@ import PropTypes from 'prop-types';
 import { CarouselMainContainer } from './styles';
 import Arrows from './Arrows';
 
-const GridCarousel = ({ ...props }) => {
+const GridCarousel = ({...props }) => {
     const {
         itemComponent,
         ItemComponent = itemComponent,
         carouselData = [],
         numberOfItemToScroll = 4,
         numberOfCardsToShow,
-        customProps,
+        otherProps,
         hideArrowsOnEnd = false,
         customScrollbar,
-        children
-
+        children,
+        customArrows={}
     } = props
+    const {leftArrow,leftArrowProps, rightArrow, rightArrowProps} = customArrows
     const carouselRowRef = useRef();
     const [showRightArrow, setShowRightArrow] = useState(false)
     const [showLeftArrow, setShowLeftArrow] = useState(false)
@@ -106,7 +107,7 @@ const GridCarousel = ({ ...props }) => {
                                 className="carousel-item">
                                 <ItemComponent
                                     item={item}
-                                    {...customProps}
+                                    {...otherProps}
                                 />
                             </div>
                         ))
@@ -118,12 +119,12 @@ const GridCarousel = ({ ...props }) => {
                     !hideArrowsOnEnd && (
                         <div className="arrows-wrapper">
                             {
-                                showLeftArrow && (
+                                (showLeftArrow && leftArrow) ? leftArrow({...leftArrowProps, onClick:()=>scroll(-1)}) : showLeftArrow &&  (
                                     <Arrows onClick={() => scroll(-1)} left />
                                 )
                             }
                             {
-                                showRightArrow && (
+                                (showRightArrow && rightArrow)? rightArrow({...rightArrowProps, onClick:()=>scroll(1)}) : showRightArrow && (
                                     <Arrows onClick={() => scroll(1)} right />
                                 )
                             }

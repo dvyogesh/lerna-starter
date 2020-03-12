@@ -69,6 +69,11 @@ const ArrowsMain = styled.div`
             fill: currentColor;
         }
     }
+    ${props=>props.square &&
+        `background-color: #3ba6f7;
+         border-radius: 0%;
+        `
+    }
 `;
 
 export {

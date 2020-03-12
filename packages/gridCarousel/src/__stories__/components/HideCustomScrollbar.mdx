@@ -1,0 +1,55 @@
+import { Meta, Props, Preview } from '@storybook/addon-docs/blocks';
+import GridCarousel from '../../';
+import gridCarouselMockData from '../../../../../public/__mock__/gridCarouselMockData';
+import { MessageWrappeStyle } from '../../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
+import CarouselItem from '../../components/CarouselItem'
+import Table from '../../../../../public/jsUtil/Table';
+import {tableData} from '../utils/propTableData';
+
+<Meta title="Hide custom scrollbar GridCarousel" component={GridCarousel} />
+
+
+## Hide custom scrollbar
+
+To hide custom scrollbar pass <span style={{ color: "#1EA7FD"}}>customScrollbar </span> prop as <span style={{ color:'#1EA7FD'}}>false</span> `customScrollbar={false}`
+
+<CodeWrapper>
+  <div className="codeIn">
+  {`
+   In First Way
+    
+    <GridCarousel
+      customScrollbar={false} // here
+      itemComponent={CarouselItem} // your component
+      carouselData={gridCarouselMockData}
+    />
+    
+    ---- OR ---- 
+   In Second Way
+    
+    <GridCarousel
+     customScrollbar={false} //here
+     carouselData={gridCarouselMockData} >
+      {
+        gridCarouselMockData.length > 0 && 
+          gridCarouselMockData.map((item, itemKey) => (
+            <div className="carousel-item">
+                <CarouselItem item={item}/> // your component
+            </div>
+        ))
+      }
+    </GridCarousel>
+  `} 
+  </div>
+</CodeWrapper>
+
+<Preview>
+    <GridCarousel 
+        itemComponent={CarouselItem}
+        carouselData={gridCarouselMockData}
+        customScrollbar={false}
+        />
+</Preview>
+
+<Props of={GridCarousel} />

@@ -3,143 +3,47 @@ import { Meta, Story, Preview, Props, ColorPalette, ColorItem } from '@storybook
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import GridCarousel from '../';
 import gridCarouselMockData from '../../../../public/__mock__/gridCarouselMockData';
-import {StyledMainPara, HeadingFourWrapper, StyledSubPara} from '../../../../public/styles/globalStyle';
-import {CodeWrapper} from '../../../../public/jsUtil/GlobalWrappers';
+import {
+  StyledMainPara, HeadingFourWrapper,
+  StyledSubPara, MessageWrappeStyle
+  } from '../../../../public/styles/globalStyle';
+import {CodeWrapper, MessageWrapper} from '../../../../public/jsUtil/GlobalWrappers';
+import Table from '../../../../public/jsUtil/Table';
+import {tableData} from './utils/propTableData';
 import CarouselItem from '../components/CarouselItem'
 import CarouselStoryWrapper from './styles';
+import Arrows from '../components/Arrows';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Introduction from './components/Introduction.mdx'
+import FirstWayOfIntegration from './components/FirstWayOfIntegration.mdx'
+import SecondWayOfIntegration from './components/SecondWayOfIntegration.mdx'
+import HideCustomScrollbar  from './components/HideCustomScrollbar.mdx'
+import CustomArrows from './components/CustomArrows.mdx'
+// import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 
 <Meta title="Design System|GridCarousel" component={GridCarousel} />
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 
-
 <Story name="Introduction" />
 
-# Grid Carousel / slider
-
-<StyledMainPara>
-  GridCarousel is  a powerful and multi-functional lightweight,
-   flexible ES6 JavaScript slider/carousel library that helps you create 
-   responsive and touch-enabled sliders with fast and performant CSS3 transitions. 
-   it helps you create a highly customizable, fully responsive, mobile (only mobile)
-    swipe-friendly content carousel/slider with lots of useful functionalities 
-    for modern web/mobile designs.
-    <br/>
-  Mainly Every <code>div</code> has class so we can overide by using any parent class of app accoriding to 
-    requird design and responsive using<code> @media </code>query 
-</StyledMainPara>
-
-<HeadingFourWrapper>To install Grid carousel/slider</HeadingFourWrapper>
-
-<SyntaxHighlighter>
-  {`npm i @yoge-shource/grid-carousel-react -S`}
-</SyntaxHighlighter>
-
-<HeadingFourWrapper>Use by import like this</HeadingFourWrapper>
-
-<CodeWrapper>
-  <div className="codeIn">
-    {`
-      import GridCarousel from '@yoge-shource/grid-carousel-react'
-    `}
-    {`
-      <GridCarousel
-        itemComponent={CarouselItem} // your component
-        carouselData={gridCarouselMockData}
-      />
-    `}
-  </div>
-</CodeWrapper>
-
-<HeadingFourWrapper>Sample looks like this</HeadingFourWrapper>
-
-<GridCarousel
-  itemComponent={CarouselItem}
-  carouselData={gridCarouselMockData}
-/>
-
+<Introduction />
 
 <Story name="First way of integration" />
 
-## First way of integration 
+<FirstWayOfIntegration />
 
-<StyledSubPara>
-  In first way of integration, We need to pass <code>itemComponent</code> and <code>carouselData</code>
-  as props to <code>GridCarousel</code>, then GridCarousel will take this component and loop this component using <code>carouselData</code>.
+<Story name="Second way of integration" />
 
-</StyledSubPara>
-## create alert box
-<Preview>
-    <CarouselStoryWrapper>
-      <GridCarousel 
-        itemComponent={CarouselItem}
-        carouselData={gridCarouselMockData}
-        />
-    </CarouselStoryWrapper>
-</Preview>
+<SecondWayOfIntegration />
 
-<Props of={GridCarousel} />
+<Story name="Hide custom scrollbar" />
 
-<Story name="Second way of integration"></Story>
-
-## Second way of integration
-
-In this second way instedOf passing `itemComponent` prop, we can loop our component in side `<GridCarousel>` like below.
-
-<SyntaxHighlighter style={docco}>
-  <div>
-  {`
-    <GridCarousel carouselData={gridCarouselMockData} >
-      {
-        gridCarouselMockData.length > 0 && 
-          gridCarouselMockData.map((item, itemKey) => (
-            <div className="carousel-item">
-                <CarouselItem item={item}/>
-            </div>
-        ))
-      }
-    </GridCarousel>
-  `} 
-  </div>
-</SyntaxHighlighter>
+<HideCustomScrollbar />
 
 
-<Preview>
-  <GridCarousel carouselData={gridCarouselMockData}>
-    {
-    gridCarouselMockData.length > 0 && 
-      gridCarouselMockData.map((item, itemKey) => (
-        <div
-            key={`${itemKey + 1}_gc`}
-            className="carousel-item">
-            <CarouselItem item={item}/>
-        </div>
-    ))
-    }
-  </GridCarousel>
-</Preview>
+<Story name="Custom Arrows" />
 
-
-
-<Props of={GridCarousel} />
-
-## hide custom scrollbar
-
-To hide custom scrollbar pass <span style={{ color: "#1EA7FD"}}>customScrollbar </span> prop as <span style={{ color:'#1EA7FD'}}>false</span> `customScrollbar={false}`
-
-<Preview>
-  <Story name="hide custom scrollbar">
-    <CarouselStoryWrapper>
-      <GridCarousel 
-        itemComponent={CarouselItem}
-        carouselData={gridCarouselMockData}
-        customScrollbar={false}
-        />
-    </CarouselStoryWrapper>
-</Story>
-</Preview>
-
-<Props of={GridCarousel} />
+<CustomArrows />
 

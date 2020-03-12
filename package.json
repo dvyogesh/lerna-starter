@@ -4,7 +4,9 @@
   "description": "@yoge_shource is yooooo",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm install && npm run build",
     "start": "npm-run-all --parallel storybook build:watch",
+    "dev": "npm-run-all --parallel storybook build:watch",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "bootstrap": "lerna bootstrap",

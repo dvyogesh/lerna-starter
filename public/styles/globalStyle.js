@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import React from 'react';
 
 const StyledMainPara = styled.h2`
 font-size: 20px;
@@ -72,9 +71,18 @@ overflow: auto;
 }
 `
 
+const MessageWrappeStyle = styled.div`
+    background-color: #ffa50094;
+    border-left:3px solid #1EA7FD;
+    background-color: #dae6f3;
+    border-left: 10px solid #1EA7FD;
+    padding: 15px;
+`
+
 export {
     StyledMainPara,
     HeadingFourWrapper,
     CodeWrapperStyle,
-    StyledSubPara
+    StyledSubPara,
+    MessageWrappeStyle
 }

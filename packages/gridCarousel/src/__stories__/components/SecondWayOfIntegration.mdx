@@ -1,0 +1,57 @@
+import { Meta, Props, Preview } from '@storybook/addon-docs/blocks';
+import GridCarousel from '../../';
+import gridCarouselMockData from '../../../../../public/__mock__/gridCarouselMockData';
+import { MessageWrappeStyle } from '../../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
+import CarouselItem from '../../components/CarouselItem'
+import Table from '../../../../../public/jsUtil/Table';
+import {tableData} from '../utils/propTableData';
+
+<Meta title="Second way of integration GridCarousel" component={GridCarousel} />
+
+
+## Second way of integration
+
+In this second way instedOf passing `itemComponent` prop, we can loop our component in side `<GridCarousel>` like below.
+
+<MessageWrappeStyle>
+  In This Way loop of component and <code>carouselData</code> props are mandatory.
+</MessageWrappeStyle>
+
+<CodeWrapper>
+  <div className="codeIn">
+  {`
+    import GridCarousel from '@yoge-shource/grid-carousel-react
+    
+    <GridCarousel carouselData={gridCarouselMockData} >
+      {
+        gridCarouselMockData.length > 0 && 
+          gridCarouselMockData.map((item, itemKey) => (
+            <div className="carousel-item">
+                <CarouselItem item={item}/>
+            </div>
+        ))
+      }
+    </GridCarousel>
+  `}
+  </div>
+</CodeWrapper>
+
+<Preview>
+  <GridCarousel carouselData={gridCarouselMockData}>
+    {
+    gridCarouselMockData.length > 0 && 
+      gridCarouselMockData.map((item, itemKey) => (
+        <div
+            key={`${itemKey + 1}_gc`}
+            className="carousel-item">
+            <CarouselItem item={item}/>
+        </div>
+    ))
+    }
+  </GridCarousel>
+</Preview>
+
+
+
+<Props of={GridCarousel} />

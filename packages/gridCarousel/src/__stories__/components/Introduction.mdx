@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import GridCarousel from '../../';
+import gridCarouselMockData from '../../../../../public/__mock__/gridCarouselMockData';
+import {StyledMainPara, HeadingFourWrapper } from '../../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
+import CarouselItem from '../../components/CarouselItem'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+
+<Meta title="Grid Carousel / Slider GridCarousel" component={GridCarousel} />
+
+
+# Grid Carousel / Slider
+
+<StyledMainPara>
+  GridCarousel is  a powerful and multi-functional lightweight,
+   flexible ES6 JavaScript slider/carousel library that helps you create 
+   responsive and touch-enabled sliders with fast and performant CSS3 transitions. 
+   it helps you create a highly customizable, fully responsive, mobile (only mobile)
+    swipe-friendly content carousel/slider with lots of useful functionalities 
+    for modern web/mobile designs.
+    <br/>
+  Mainly Every <code>div</code> has class so we can overide by using any parent class of app accoriding to 
+    requird design and responsive using<code> @media </code>query 
+</StyledMainPara>
+
+<HeadingFourWrapper>To install Grid carousel/slider</HeadingFourWrapper>
+
+<SyntaxHighlighter>
+  {`npm i @yoge-shource/grid-carousel-react -S`}
+</SyntaxHighlighter>
+
+<HeadingFourWrapper>Use by import like this</HeadingFourWrapper>
+
+<CodeWrapper>
+  <div className="codeIn">
+  {`
+   import GridCarousel from '@yoge-shource/grid-carousel-react
+   
+    First Way
+    
+    <GridCarousel
+      itemComponent={CarouselItem} // your component
+      carouselData={gridCarouselMockData}
+    />
+    
+    ---- OR ---- 
+    Second Way
+    
+    <GridCarousel carouselData={gridCarouselMockData} >
+      {
+        gridCarouselMockData.length > 0 && 
+          gridCarouselMockData.map((item, itemKey) => (
+            <div className="carousel-item">
+                <CarouselItem item={item}/> // your component
+            </div>
+        ))
+      }
+    </GridCarousel>
+  `} 
+  </div>
+</CodeWrapper>
+
+<HeadingFourWrapper>Sample looks like this</HeadingFourWrapper>
+
+<GridCarousel
+  itemComponent={CarouselItem}
+  carouselData={gridCarouselMockData}
+/>
