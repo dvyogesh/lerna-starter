@@ -14,13 +14,21 @@ const GridCarousel = ({...props }) => {
         hideArrowsOnEnd = false,
         customScrollbar,
         children,
-        customArrows={}
+        customArrows={},
+        autoPlay
     } = props
     const {leftArrow,leftArrowProps, rightArrow, rightArrowProps} = customArrows
+    const arrowOnClick  = (arrowProp) => {
+        const {onClick}=arrowProp
+        if(onClick)onClick()
+    }
+
     const carouselRowRef = useRef();
+    const scrollBarRef = useRef()
     const [showRightArrow, setShowRightArrow] = useState(false)
     const [showLeftArrow, setShowLeftArrow] = useState(false)
-    const scrollBarRef = useRef()
+    const [mouseOver, setMouseOver] = useState(false)
+    
 
     const scroll = direction => {
         const { current } = carouselRowRef
@@ -45,21 +53,21 @@ const GridCarousel = ({...props }) => {
 
     const isReachedLeftEnd = () => {
         const { current } = carouselRowRef;
-        (current.scrollLeft === 0) ? setShowLeftArrow(false) :
-            setShowLeftArrow(true)
-
-
+        (current.scrollLeft === 0) ? setShowLeftArrow(false) : setShowLeftArrow(true)
     }
 
-    const isReachedRightEnd = () => {
+    const isReachedRightEnd = () => 
+    rightEnd() ? setShowRightArrow(false) : setShowRightArrow(true)
+
+
+    const rightEnd = () => {
         const { current: { scrollLeft, scrollWidth, clientWidth } } = carouselRowRef;
         const actualWidth = scrollWidth - clientWidth;
         if (scrollLeft === actualWidth || scrollLeft + 20 > actualWidth) {
-            setShowRightArrow(false)
+            return true
         } else {
-            setShowRightArrow(true)
+            return false
         }
-
     }
 
     useEffect(() => {
@@ -84,8 +92,21 @@ const GridCarousel = ({...props }) => {
         }
         checkRightEndOnMount()
         isReachedLeftEnd()
-        if (customScrollbar) createScrollbar()
+        if (customScrollbar) createScrollbar();
+       
     }, [carouselData.length, numberOfItemToScroll])
+
+
+    useEffect(()=>{
+        if(autoPlay){
+            const intr = setInterval(makePlay, 1000) 
+            function makePlay(){
+                rightEnd() ? clearInterval(intr):scroll(1);
+            }
+        } 
+         
+    },[])
+   
 
     const settings = {
         numberOfCardsToShow
@@ -94,7 +115,7 @@ const GridCarousel = ({...props }) => {
     return (
         <CarouselMainContainer {...settings}>
             <p>GridCarousel</p>
-            <div className="carousel-row-wrapper">
+            <div className="carousel-row-wrapper" >
                 <div
                     className="carousel-row"
                     ref={carouselRowRef}
@@ -119,12 +140,25 @@ const GridCarousel = ({...props }) => {
                     !hideArrowsOnEnd && (
                         <div className="arrows-wrapper">
                             {
-                                (showLeftArrow && leftArrow) ? leftArrow({...leftArrowProps, onClick:()=>scroll(-1)}) : showLeftArrow &&  (
+                                (showLeftArrow && leftArrow) ? 
+                                leftArrow({
+                                    ...leftArrowProps,
+                                    onClick:()=>{
+                                        scroll(-1);
+                                        arrowOnClick(leftArrowProps)
+                                    }
+                                    }) : showLeftArrow &&  (
                                     <Arrows onClick={() => scroll(-1)} left />
                                 )
                             }
                             {
-                                (showRightArrow && rightArrow)? rightArrow({...rightArrowProps, onClick:()=>scroll(1)}) : showRightArrow && (
+                                (showRightArrow && rightArrow) ?
+                                rightArrow({
+                                    ...rightArrowProps,
+                                    onClick:()=>{
+                                        scroll(1);
+                                        arrowOnClick(rightArrowProps)
+                                    }}) : showRightArrow && (
                                     <Arrows onClick={() => scroll(1)} right />
                                 )
                             }
@@ -185,7 +219,8 @@ GridCarousel.defaultProps = {
       */
     username: 'PropTypes.string',
     hideArrowsOnEnd: false,
-    customScrollbar: true
+    customScrollbar: true,
+    autoPlay: false
 
 };
 

@@ -6,7 +6,9 @@ import { StyledSubPara, MessageWrappeStyle } from '../../../../../public/styles/
 import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
 import CarouselItem from '../../components/CarouselItem';
 import Arrows from '../../components/Arrows';
-
+const customOnclick = () => {
+    console.log('i am customOnclick')
+}
 <Meta title="Custom Arrows  GridCarousel" component={GridCarousel} />
 
 ## Custom Arrows
@@ -18,6 +20,7 @@ import Arrows from '../../components/Arrows';
 <MessageWrappeStyle>
   <code>customArrows</code> prop should be Object
 </MessageWrappeStyle>
+
 
 <CodeWrapper>
   <div className="codeIn">
@@ -33,7 +36,7 @@ import Arrows from '../../components/Arrows';
       carouselData={gridCarouselMockData}
       // --- here ---
       customArrows={{
-          leftArrow: Arrows, // your Arrow component
+          leftArrow: Arrows, // your Arrow component and do not <Arrow />
           leftArrowProps: {left:'right', square:'square'},  // your Arrow component props
           rightArrow: Arrows, // your Arrow component props
           rightArrowProps:{right:'right', square:'square'} // your Arrow component props
@@ -45,28 +48,40 @@ import Arrows from '../../components/Arrows';
     Second Way
     
     <GridCarousel
-     carouselData={gridCarouselMockData} 
-     // --- here ---
-     customArrows={{
-          leftArrow: Arrows,
-          leftArrowProps: {left:'right', square:'square'},  
+      carouselData={gridCarouselMockData} 
+      // --- here ---
+      customArrows={{ // double braces important
+          leftArrow: Arrows, // your Arrow component and do not <Arrow />
+          leftArrowProps: {left:'right', square:'square', onClick:onClickHandler}, 
+           // onClick: () => onClickHandler() ---- wrong---- 
+            // onClick: onClickHandler---- right----
           rightArrow: Arrows,
-          rightArrowProps:{right:'right', square:'square'}
-        }
-      }
-    >
-      {
+          rightArrowProps:{right:'right', square:'square', onClick:onClickHandler}
+        }} >
+       {
         gridCarouselMockData.length > 0 && 
           gridCarouselMockData.map((item, itemKey) => (
             <div className="carousel-item">
                 <CarouselItem item={item}/> // your component
             </div>
         ))
-      }
+       }
     </GridCarousel>
   `} 
+  <MessageWrappeStyle>
+    In side GridCarousel  Above Arrow will render like this 
+  </MessageWrappeStyle>
+  {
+      `
+      <Arrows right='right', square='square' onClick={()=>onClick()} />
+      `
+  }
   </div>
+  
+ 
 </CodeWrapper>
+
+
 
 <Preview>
   <GridCarousel
@@ -74,9 +89,9 @@ import Arrows from '../../components/Arrows';
     carouselData={gridCarouselMockData}
     customArrows={{
       leftArrow: Arrows,
-      leftArrowProps: {left:'right', square:'square'},  
+      leftArrowProps: {left:'right', square:'square',onClick:customOnclick},  
       rightArrow: Arrows,
-      rightArrowProps:{right:'right', square:'square'}
+      rightArrowProps:{right:'right', square:'square', onClick:customOnclick}
     }
     }
   />

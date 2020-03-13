@@ -47,3 +47,43 @@ import CustomArrows from './components/CustomArrows.mdx'
 
 <CustomArrows />
 
+<Story name="Auto Play / Auto slide" />
+
+## Auto Play / Auto slide 
+
+<StyledSubPara>
+  In first way of integration, We need to pass <code>itemComponent</code> and <code>carouselData</code>
+  as props to <code>GridCarousel</code>, then GridCarousel will take this component and loop this component using <code>carouselData</code>
+  and while looping, GridCarousel will send <code>item</code>, <code>...otherprop</code> as pops to itemComponent.
+</StyledSubPara>
+
+<MessageWrappeStyle>
+  In This Way <code>itemComponent</code> and <code>carouselData</code> props are mandatory.
+</MessageWrappeStyle>
+
+<CodeWrapper>
+  <div className="codeIn">
+  {`
+   import GridCarousel from '@yoge-shource/grid-carousel-react
+    
+    <GridCarousel
+      itemComponent={CarouselItem} // your component
+      carouselData={gridCarouselMockData}
+      otherProps={{
+        loading: false
+      }} // your other requered props
+    />
+    </GridCarousel>
+  `} 
+  </div>
+</CodeWrapper>
+
+<HeadingFourWrapper>Out looks like this</HeadingFourWrapper>
+
+<GridCarousel
+  itemComponent={CarouselItem}
+  carouselData={gridCarouselMockData}
+  autoPlay={true}
+/>
+
+
