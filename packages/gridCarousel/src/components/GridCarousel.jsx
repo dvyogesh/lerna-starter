@@ -25,9 +25,10 @@ const GridCarousel = ({...props }) => {
 
     const carouselRowRef = useRef();
     const scrollBarRef = useRef()
+    const arrowAutoplayRef = useRef()
     const [showRightArrow, setShowRightArrow] = useState(false)
     const [showLeftArrow, setShowLeftArrow] = useState(false)
-    const [mouseOver, setMouseOver] = useState(false)
+    
     
 
     const scroll = direction => {
@@ -99,13 +100,16 @@ const GridCarousel = ({...props }) => {
 
     useEffect(()=>{
         if(autoPlay){
-            const intr = setInterval(makePlay, 1000) 
+            arrowAutoplayRef.current=arrowAutoplayRef.current || {}
+           arrowAutoplayRef.current.intervel = setInterval(makePlay, 1000) 
             function makePlay(){
-                rightEnd() ? clearInterval(intr):scroll(1);
+                rightEnd() ? clearInterval(arrowAutoplayRef.current.intervel) : scroll(1);
             }
         } 
-         
+         () => clearInterval(arrowAutoplayRef.current.intervel)
     },[])
+
+    const rowMouseHover = () => clearInterval(arrowAutoplayRef.current.intervel)
    
 
     const settings = {
@@ -115,7 +119,7 @@ const GridCarousel = ({...props }) => {
     return (
         <CarouselMainContainer {...settings}>
             <p>GridCarousel</p>
-            <div className="carousel-row-wrapper" >
+            <div className="carousel-row-wrapper" onMouseOver={rowMouseHover}>
                 <div
                     className="carousel-row"
                     ref={carouselRowRef}
