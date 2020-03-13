@@ -1,19 +1,14 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import GridCarousel from '../../';
 import gridCarouselMockData from '../../../../../public/__mock__/gridCarouselMockData';
-import {
-  StyledMainPara, StyledSubPara,
+import { StyledSubPara,
    HeadingFourWrapper, MessageWrappeStyle } from '../../../../../public/styles/globalStyle';
 import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
 import CarouselItem from '../../components/CarouselItem'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import Table from '../../../../../public/jsUtil/Table';
-import {tableData} from '../utils/propTableData';
 
-<Meta title="First way of integration  GridCarousel" component={GridCarousel} />
+<Meta title="Auto Play or Auto slide" component={GridCarousel} />
 
-
-## First way of integration
+## Auto Play or Auto slide
 
 <StyledSubPara>
   In first way of integration, We need to pass <code>itemComponent</code> and <code>carouselData</code>
@@ -25,18 +20,38 @@ import {tableData} from '../utils/propTableData';
   In This Way <code>itemComponent</code> and <code>carouselData</code> props are mandatory.
 </MessageWrappeStyle>
 
+<MessageWrappeStyle>
+  Autoplay will stop onHover of the GridCarousel
+</MessageWrappeStyle>
+
 <CodeWrapper>
   <div className="codeIn">
   {`
    import GridCarousel from '@yoge-shource/grid-carousel-react
+   
+    First Way
     
     <GridCarousel
+      autoPlay={true} --- here--
       itemComponent={CarouselItem} // your component
       carouselData={gridCarouselMockData}
-      otherProps={{
-        loading: false
-      }} // your other requered props
     />
+    
+    ---- OR ---- 
+    Second Way
+    
+    <GridCarousel
+      carouselData={gridCarouselMockData}
+       autoPlay={true} --- here--
+      >
+      {
+        gridCarouselMockData.length > 0 && 
+          gridCarouselMockData.map((item, itemKey) => (
+            <div className="carousel-item">
+                <CarouselItem item={item}/> // your component
+            </div>
+        ))
+      }
     </GridCarousel>
   `} 
   </div>
@@ -47,6 +62,6 @@ import {tableData} from '../utils/propTableData';
 <GridCarousel
   itemComponent={CarouselItem}
   carouselData={gridCarouselMockData}
+  autoPlay={true}
 />
 
-<Table data = {tableData} />

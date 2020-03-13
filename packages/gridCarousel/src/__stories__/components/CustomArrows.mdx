@@ -1,5 +1,5 @@
 
-import { Meta, Preview } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 import GridCarousel from '../../';
 import gridCarouselMockData from '../../../../../public/__mock__/gridCarouselMockData';
 import { StyledSubPara, MessageWrappeStyle } from '../../../../../public/styles/globalStyle';
@@ -81,19 +81,15 @@ const customOnclick = () => {
  
 </CodeWrapper>
 
-
-
-<Preview>
-  <GridCarousel
+<GridCarousel
     itemComponent={CarouselItem}
     carouselData={gridCarouselMockData}
     customArrows={{
-      leftArrow: Arrows,
-      leftArrowProps: {left:'right', square:'square',onClick:customOnclick},  
-      rightArrow: Arrows,
-      rightArrowProps:{right:'right', square:'square', onClick:customOnclick}
-    }
-    }
-  />
-</Preview>
+        leftArrow: Arrows,
+        leftArrowProps: {left:'right', square:'square',onClick:customOnclick},  
+        rightArrow: Arrows,
+        rightArrowProps:{right:'right', square:'square', onClick:customOnclick}
+    }}
+/>
+
 

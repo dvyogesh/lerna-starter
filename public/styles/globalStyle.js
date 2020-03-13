@@ -11,6 +11,11 @@ font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",Bli
 -webkit-overflow-scrolling: touch;
 font-weight: 400;
 color: rgba(51,51,51,0.75);
+code {
+    background-color: #f5f2f0;
+    padding: 1px 3px;
+    margin-right: 2px;
+}
 `
 const StyledSubPara = styled.h2`
 font-size: 18px;
@@ -23,6 +28,11 @@ font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",Bli
 -webkit-overflow-scrolling: touch;
 font-weight: 400;
 color: rgba(51,51,51,0.75);
+code {
+    background-color: #f5f2f0;
+    padding: 1px 3px;
+    margin-right: 2px;
+}
 `
 const HeadingFourWrapper = styled.h4`
 font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -77,6 +87,8 @@ const MessageWrappeStyle = styled.div`
     background-color: #dae6f3;
     border-left: 10px solid #1EA7FD;
     padding: 15px;
+    margin: 10px 0px;
+    font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
 `
 
 export {

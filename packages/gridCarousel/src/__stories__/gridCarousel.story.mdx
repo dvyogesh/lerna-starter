@@ -19,6 +19,7 @@ import FirstWayOfIntegration from './components/FirstWayOfIntegration.mdx'
 import SecondWayOfIntegration from './components/SecondWayOfIntegration.mdx'
 import HideCustomScrollbar  from './components/HideCustomScrollbar.mdx'
 import CustomArrows from './components/CustomArrows.mdx'
+import Autoplay from './components/Autoplay.mdx'
 // import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 
@@ -26,64 +27,26 @@ import CustomArrows from './components/CustomArrows.mdx'
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 
-<Story name="Introduction" />
+<Story name="Introduction">
+  <Introduction />
+</Story>
 
-<Introduction />
+<Story name="First way of integration">
+ <FirstWayOfIntegration />
+</Story>
 
-<Story name="First way of integration" />
+<Story name="Second way of integration">
+ <SecondWayOfIntegration />
+</Story>
 
-<FirstWayOfIntegration />
+<Story name="Hide custom scrollbar">
+ <HideCustomScrollbar />
+</Story>
 
-<Story name="Second way of integration" />
+<Story name="Custom Arrows">
+  <CustomArrows />
+</Story>
 
-<SecondWayOfIntegration />
-
-<Story name="Hide custom scrollbar" />
-
-<HideCustomScrollbar />
-
-
-<Story name="Custom Arrows" />
-
-<CustomArrows />
-
-<Story name="Auto Play / Auto slide" />
-
-## Auto Play / Auto slide 
-
-<StyledSubPara>
-  In first way of integration, We need to pass <code>itemComponent</code> and <code>carouselData</code>
-  as props to <code>GridCarousel</code>, then GridCarousel will take this component and loop this component using <code>carouselData</code>
-  and while looping, GridCarousel will send <code>item</code>, <code>...otherprop</code> as pops to itemComponent.
-</StyledSubPara>
-
-<MessageWrappeStyle>
-  In This Way <code>itemComponent</code> and <code>carouselData</code> props are mandatory.
-</MessageWrappeStyle>
-
-<CodeWrapper>
-  <div className="codeIn">
-  {`
-   import GridCarousel from '@yoge-shource/grid-carousel-react
-    
-    <GridCarousel
-      itemComponent={CarouselItem} // your component
-      carouselData={gridCarouselMockData}
-      otherProps={{
-        loading: false
-      }} // your other requered props
-    />
-    </GridCarousel>
-  `} 
-  </div>
-</CodeWrapper>
-
-<HeadingFourWrapper>Out looks like this</HeadingFourWrapper>
-
-<GridCarousel
-  itemComponent={CarouselItem}
-  carouselData={gridCarouselMockData}
-  autoPlay={true}
-/>
-
-
+<Story name="Auto Play or Auto slide">
+  <Autoplay />
+</Story>

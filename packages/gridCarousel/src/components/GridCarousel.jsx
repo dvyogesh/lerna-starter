@@ -53,8 +53,9 @@ const GridCarousel = ({...props }) => {
     }
 
     const isReachedLeftEnd = () => {
-        const { current } = carouselRowRef;
-        (current.scrollLeft === 0) ? setShowLeftArrow(false) : setShowLeftArrow(true)
+        carouselRowRef.current = carouselRowRef.current || {}
+        const { current:{scrollLeft} } = carouselRowRef;
+        (scrollLeft === 0) ? setShowLeftArrow(false) : setShowLeftArrow(true)
     }
 
     const isReachedRightEnd = () => 
@@ -62,6 +63,7 @@ const GridCarousel = ({...props }) => {
 
 
     const rightEnd = () => {
+        carouselRowRef.current = carouselRowRef.current || {}
         const { current: { scrollLeft, scrollWidth, clientWidth } } = carouselRowRef;
         const actualWidth = scrollWidth - clientWidth;
         if (scrollLeft === actualWidth || scrollLeft + 20 > actualWidth) {
@@ -109,7 +111,10 @@ const GridCarousel = ({...props }) => {
          () => clearInterval(arrowAutoplayRef.current.intervel)
     },[])
 
-    const rowMouseHover = () => clearInterval(arrowAutoplayRef.current.intervel)
+    const rowMouseHover = () => {
+        arrowAutoplayRef.current = arrowAutoplayRef.current || {}
+        clearInterval(arrowAutoplayRef.current.intervel)
+    } 
    
 
     const settings = {
