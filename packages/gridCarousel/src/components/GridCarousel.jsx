@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { CarouselMainContainer } from './styles';
+import { CarouselMainContainer, DotItem, DotItemActive } from './styles';
 import Arrows from './Arrows';
 
 const GridCarousel = ({...props }) => {
@@ -15,7 +15,8 @@ const GridCarousel = ({...props }) => {
         customScrollbar,
         children,
         customArrows={},
-        autoPlay
+        autoPlay,
+        dots
     } = props
     const {leftArrow,leftArrowProps, rightArrow, rightArrowProps} = customArrows
     const arrowOnClick  = (arrowProp) => {
@@ -28,6 +29,7 @@ const GridCarousel = ({...props }) => {
     const arrowAutoplayRef = useRef()
     const [showRightArrow, setShowRightArrow] = useState(false)
     const [showLeftArrow, setShowLeftArrow] = useState(false)
+    const [scrollIntoViewElm, setScrollIntoViewElm] = useState(false)
     
     
 
@@ -50,6 +52,15 @@ const GridCarousel = ({...props }) => {
         const scrollbarPercent = scrollLeft / scrollWidth;
         const scrollbarPosition = scrollbarPercent * offsetWidth
         if (scrollbar && scrollbar.style) scrollbar.style.left = `${scrollbarPosition}px`
+        moveDots()
+    }
+
+    const moveDots = () => {
+        setTimeout(()=>{
+            setScrollIntoViewElm([...carouselRowRef.current.querySelectorAll(`[id*="_gc"]`)])
+            scrollIntoViewElm.forEach((elm)=>{elm.isActive = !elm.isActive||false})
+            setScrollIntoViewElm([...scrollIntoViewElm])
+        }, 900)
     }
 
     const isReachedLeftEnd = () => {
@@ -114,7 +125,26 @@ const GridCarousel = ({...props }) => {
     const rowMouseHover = () => {
         arrowAutoplayRef.current = arrowAutoplayRef.current || {}
         clearInterval(arrowAutoplayRef.current.intervel)
-    } 
+    }
+
+    const checkInView = (element) => {
+        const container = carouselRowRef.current;
+        const contWidth = container.clientWidth;
+        const position = element && element.getBoundingClientRect()
+        if(position.left >= 0 && position.left <= contWidth) {
+            return true
+        }
+        return false
+    }
+
+    useEffect(()=>{
+        setScrollIntoViewElm([...carouselRowRef.current.childNodes])
+    }, [])
+
+    const dotOnClickHandle = (viewElement) => {
+        viewElement && viewElement.scrollIntoView();
+        moveDots()  
+    }
    
 
     const settings = {
@@ -134,7 +164,7 @@ const GridCarousel = ({...props }) => {
                         carouselData.map((item, itemKey) => (
                             <div
                                 key={`${itemKey + 1}_gc`}
-                                className="carousel-item">
+                                className="carousel-item" id={`${itemKey}_gc`}>
                                 <ItemComponent
                                     item={item}
                                     {...otherProps}
@@ -187,8 +217,50 @@ const GridCarousel = ({...props }) => {
                     </div>
                 )
             }
+            {
+                dots && scrollIntoViewElm &&
+                    <ul className="dots-wrapper">
+                    {
+                         scrollIntoViewElm.map((viewElement, dotIndex)=>(
+                             <Fragment key={`${dotIndex+1}_gc`}>
+                                 {
+                                     viewElement &&
+                                     checkInView(viewElement) &&(
+                                        <DotItemActive
+                                        
+                                        className={`dot-item ${viewElement &&
+                                            checkInView(viewElement) ? 'active':'' }`}
+                                        onClick={()=> dotOnClickHandle(viewElement)}>
+                                        <button className="dot-button" />
+                                    </DotItemActive>
 
+                                     )
+                                     
 
+                                 }
+                                 {
+                                     viewElement && !checkInView(viewElement) &&(
+                                        <DotItem
+                                        className="dot-item"
+                                        onClick={()=> dotOnClickHandle(viewElement)}>
+                                        <button className="dot-button" />
+                                    </DotItem>
+
+                                     )
+                                     
+                                 }
+                             </Fragment>
+                            // <DotItem
+                            //     key={`${dotIndex+1}_gc`}
+                            //     className={`dot-item ${viewElement &&
+                            //         checkInView(viewElement) ? 'active':'' }`}
+                            //     onClick={()=> dotOnClickHandle(viewElement)}>
+                            //     <button className="dot-button" />
+                            // </DotItem>
+                        ))
+                    }
+                    </ul>
+            }
         </CarouselMainContainer>
     )
 }
@@ -196,6 +268,18 @@ const GridCarousel = ({...props }) => {
 
 
 GridCarousel.propTypes = {
+   itemComponent: PropTypes.func,
+    // ItemComponent = itemComponent,
+    carouselData: PropTypes.array,
+    numberOfItemToScroll:PropTypes.number,
+    numberOfCardsToShow: PropTypes.number,
+    otherProps: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    hideArrowsOnEnd: PropTypes.bool,
+    customScrollbar: PropTypes.bool,
+    children: PropTypes.node,
+    customArrows: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    autoPlay: PropTypes.bool,
+    dots:PropTypes.bool,
     /**
       Use the loading state to indicate that the data Avatar needs is still loading.
       */
@@ -221,7 +305,7 @@ GridCarousel.defaultProps = {
       Use the loading state to indicate that the data Avatar needs is still loading.
       */
     numberOfItemToScroll: 2,
-    numberOfCardsToShow: 4,
+    numberOfCardsToShow: 3,
     /**
       Avatar falls back to the user's initial when no image is provided. 
       Supply a `username` and omit `src` to see what this looks like.
@@ -229,8 +313,8 @@ GridCarousel.defaultProps = {
     username: 'PropTypes.string',
     hideArrowsOnEnd: false,
     customScrollbar: true,
-    autoPlay: false
-
+    autoPlay: false,
+    dots: false
 };
 
 

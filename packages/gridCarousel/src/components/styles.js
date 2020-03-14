@@ -16,6 +16,9 @@ const CarouselMainContainer = styled.div`
         .carousel-item{
             flex: 0 0 ${props => 100 / props.numberOfCardsToShow}%;
         }
+        >div{
+            flex: 0 0 ${props => 100 / props.numberOfCardsToShow}%;
+        }
         img{
             max-width:100%;
         }
@@ -31,6 +34,15 @@ const CarouselMainContainer = styled.div`
             width:5%;
             height: 5px;
             background-color: red;
+        }
+    }
+    .dots-wrapper {
+        margin: 0;
+        padding: 0;
+        .dot-item {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
         }
     }
 `;
@@ -76,8 +88,41 @@ const ArrowsMain = styled.div`
     }
 `;
 
+const DotItem = styled.li`
+&.dot-item{
+    button {
+        background-color: #7e818c;
+        border: 0;
+        border-radius: 50%;
+        outline: none;
+        width: 10px;
+        height: 14px;
+        margin: 5px;
+        font-size: 24px;
+        opacity: .25;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;  
+    }
+}
+`;
+
+const DotItemActive = styled(DotItem)`
+&.active{
+    button{
+    background-color: #535766;
+    opacity: .75;
+    width: 10px;
+    height: 14px;
+    margin:0px;
+
+}
+}
+`
+
 export {
     CarouselMainContainer,
     CarouselItemWrapper,
-    ArrowsMain
+    ArrowsMain,
+    DotItem,
+    DotItemActive
 };

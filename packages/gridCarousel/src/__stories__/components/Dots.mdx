@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import GridCarousel from '../../';
+import gridCarouselMockData from '../../../../../public/__mock__/gridCarouselMockData';
+import { MessageWrappeStyle, StyledSubPara } from '../../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
+import CarouselItem from '../../components/CarouselItem'
+import Table from '../../../../../public/jsUtil/Table';
+import {tableData} from '../utils/propTableData';
+
+<Meta title="Dots Enable GridCarousel" component={GridCarousel} />
+
+
+## Dots Enable
+
+<StyledSubPara>
+  To enable dots in GridCarousel pass <span style={{ color: "#1EA7FD"}}>dots </span> prop as <span style={{ color:'#1EA7FD'}}>true</span> `dots={true}`
+</StyledSubPara>
+
+<CodeWrapper>
+  <div className="codeIn">
+  {`
+   In First Way
+    
+    <GridCarousel
+      dots={true} // ---> here <---
+      itemComponent={CarouselItem} // your component
+      carouselData={gridCarouselMockData}
+    />
+    
+    ---- OR ---- 
+   In Second Way
+    
+    <GridCarousel
+     dots={true} // ---> here <---
+     carouselData={gridCarouselMockData} >
+      {
+        gridCarouselMockData.length > 0 && 
+          gridCarouselMockData.map((item, itemKey) => (
+            <div className="carousel-item">
+                <CarouselItem item={item}/> // your component
+            </div>
+        ))
+      }
+    </GridCarousel>
+  `} 
+  </div>
+</CodeWrapper>
+
+<GridCarousel 
+    itemComponent={CarouselItem}
+    carouselData={gridCarouselMockData}
+    dots={true}
+/>
+
