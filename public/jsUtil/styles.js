@@ -37,7 +37,10 @@ const TableStyleWrapper = styled.div`
     }
 `
 const TableTdStyle = styled.td`
-width:${props => props.width}px;
+    width:${props => props.width}px;
+    &:first-of-type {
+        max-width:${props => props.width};
+    }
 `
 export {
     TableStyleWrapper,

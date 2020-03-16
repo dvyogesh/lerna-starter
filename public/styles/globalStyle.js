@@ -17,7 +17,7 @@ code {
     margin-right: 2px;
 }
 `
-const StyledSubPara = styled.h2`
+const StyledSubPara = styled(StyledMainPara)`
 font-size: 18px;
 line-height: 26px;
 margin-bottom: 24px;
@@ -34,6 +34,12 @@ code {
     margin-right: 2px;
 }
 `
+const StypledCustomPara = styled(StyledMainPara)`
+    ${props => `
+        font-size: ${props.fontSize ? props.fontSize: 18 }px;
+        line-height: ${props.lineHeight ? props.lineHeight: 26 }px;
+    `}
+`;
 const HeadingFourWrapper = styled.h4`
 font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
 margin: 0;
@@ -96,5 +102,6 @@ export {
     HeadingFourWrapper,
     CodeWrapperStyle,
     StyledSubPara,
-    MessageWrappeStyle
+    MessageWrappeStyle,
+    StypledCustomPara
 }

@@ -152,8 +152,8 @@ const GridCarousel = ({...props }) => {
     }
 
     return (
+        
         <CarouselMainContainer {...settings}>
-            <p>GridCarousel</p>
             <div className="carousel-row-wrapper" onMouseOver={rowMouseHover}>
                 <div
                     className="carousel-row"

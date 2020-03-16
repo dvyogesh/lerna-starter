@@ -19,9 +19,9 @@ const Table = ({ data: { columns, rows } }) => {
                         <TableTdStyle
                             key={`${rowColIndex + 1}_rowCol`}
                             width={
-                                columns[rowColIndex] ? columns[rowColIndex].width : ''
+                                columns[rowColIndex] ? `${columns[rowColIndex].width}px` : ''
                             }>
-                            {row[column.title]}
+                        {row[column.title]}
                         </TableTdStyle>);
                 })}
             </tr>);

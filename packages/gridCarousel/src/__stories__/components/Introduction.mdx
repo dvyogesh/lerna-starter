@@ -3,9 +3,10 @@ import GridCarousel from '../../';
 import gridCarouselMockData from '../../../../../public/__mock__/gridCarouselMockData';
 import {StyledMainPara, HeadingFourWrapper } from '../../../../../public/styles/globalStyle';
 import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
-import CarouselItem from '../../components/CarouselItem'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { linkTo } from '@storybook/addon-links'
+import CarouselItem from '../../components/CarouselItem';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { linkTo } from '@storybook/addon-links';
+import PropsTable from './PropsTable.mdx';
 
 <Meta title="Grid Carousel / Slider GridCarousel" component={GridCarousel} />
 
@@ -67,3 +68,5 @@ import { linkTo } from '@storybook/addon-links'
   itemComponent={CarouselItem}
   carouselData={gridCarouselMockData}
 />
+
+<PropsTable />
