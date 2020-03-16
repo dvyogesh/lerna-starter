@@ -54,7 +54,7 @@ const Item = (index) => (<div>{index}</div>)
 const carouselData = [{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'}]
 const Gallery = () => {
   return (
-    <GridCarousel customScrollbar={false} dots={true} cuscarouselData={[{}]} itemComponent={Item} />
+    <GridCarousel customScrollbar={false} dots={true} cuscarouselData={carouselData} itemComponent={Item} />
   )
 }
 ```
@@ -336,7 +336,6 @@ In first way of integration, We need to pass `itemComponent` and `carouselData` 
         ))
       }
     </GridCarousel>
-  
 ```
 
 or visit https://dvyogesh.github.io/lerna-starter/?path=/story/design-system-gridcarousel--auto-play-or-auto-slide

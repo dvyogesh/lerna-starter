@@ -57,7 +57,7 @@ const GridCarousel = ({...props }) => {
 
     const moveDots = () => {
         setTimeout(()=>{
-            setScrollIntoViewElm([...carouselRowRef.current.querySelectorAll(`[id*="_gc"]`)])
+            setScrollIntoViewElm([...carouselRowRef.current.childNodes])
             scrollIntoViewElm.forEach((elm)=>{elm.isActive = !elm.isActive||false})
             setScrollIntoViewElm([...scrollIntoViewElm])
         }, 900)
@@ -119,7 +119,7 @@ const GridCarousel = ({...props }) => {
                 rightEnd() ? clearInterval(arrowAutoplayRef.current.intervel) : scroll(1);
             }
         } 
-         () => clearInterval(arrowAutoplayRef.current.intervel)
+       //  () => clearInterval(arrowAutoplayRef.current.intervel)
     },[])
 
     const rowMouseHover = () => {
@@ -127,14 +127,25 @@ const GridCarousel = ({...props }) => {
         clearInterval(arrowAutoplayRef.current.intervel)
     }
 
+    // const checkInView = (element) => {
+        
+    //     const container = carouselRowRef.current;
+    //     const contWidth = container.clientWidth;
+    //     const position = element && element.getBoundingClientRect()
+    //     if(position.left >= 0 && ( position.right <= contWidth || position.left <= contWidth) ) {
+    //         return true
+    //     }
+    //     return false
+    // }
+
     const checkInView = (element) => {
-        const container = carouselRowRef.current;
-        const contWidth = container.clientWidth;
-        const position = element && element.getBoundingClientRect()
-        if(position.left >= 0 && position.left <= contWidth) {
-            return true
-        }
-        return false
+        var docViewTop = carouselRowRef.current.scrollLeft;
+        var docViewBottom = docViewTop + carouselRowRef.current.clientWidth;
+    
+        var elemTop = element.offsetLeft;
+        var elemBottom = elemTop + element.clientHeight;
+    
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     }
 
     useEffect(()=>{
