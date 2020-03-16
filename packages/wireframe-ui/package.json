@@ -7,13 +7,12 @@
   "author": "Yogesh DV",
   "private": false,
   "dependencies": {
+    "react": "^16.8.0",
     "@yoge-shource/button": "^0.1.2",
     "@yoge-shource/counter": "^0.1.3"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "styled-components": "^4.1.1",
-    "styled-map": "^3.2.0-rc.1"
+    "react": "^16.0.0"
   },
   "publishConfig": {
     "access": "public"

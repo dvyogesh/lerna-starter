@@ -11,5 +11,6 @@
       ]
     }
   },
-  "version": "independent"
+  "version": "independent",
+  "useWorkspaces": true
 }

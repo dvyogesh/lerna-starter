@@ -6,8 +6,8 @@
   "module": "src/index.js",
   "author": "Yogesh DV",
   "private": false,
-  "peerDependencies": {
-    "react": "^16.0.0",
+  "dependencies": {
+    "react": "^16.8.0",
     "styled-components": "^5.0.1"
   },
   "publishConfig": {

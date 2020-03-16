@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "@yoge_shource is yooooo",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "prestart": "npm install && npm run build",
     "start": "npm-run-all --parallel storybook build:watch",
@@ -10,7 +11,8 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "bootstrap": "lerna bootstrap",
-    "build": "lerna exec --parallel -- babel src -d dist --ignore src/__tests__/,src/__stories__/,src/__wireframe__/**",
+    "build-packages": " npx lerna exec -- npm install",
+    "build": "npm run build-packages && lerna exec --parallel -- babel src -d dist --ignore src/__tests__/,src/__stories__/,src/__wireframe__/**",
     "build:watch": "npm run build -- --watch",
     "export-static-storybook": "build-storybook -c .storybook -o .out",
     "publish-packages": "lerna publish",
@@ -32,6 +34,9 @@
   "bugs": {
     "url": "https://dvyogesh.github.io/lerna-starter/lerna-starter/issues"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "homepage": "http://dvyogesh.github.io/lerna-starter",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
