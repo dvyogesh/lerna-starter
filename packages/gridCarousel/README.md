@@ -50,11 +50,11 @@ and pass your item into itemComponent prop
 ```javascript
 import React from 'react'
 import GridCarousel from 'grid-carousel-react'
-const Item = (index) => (<div>{index}</div>)
+const Item = ({item}) => (<div>{item.name}</div>)
 const carouselData = [{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'}]
 const Gallery = () => {
   return (
-    <GridCarousel customScrollbar={false} dots={true} cuscarouselData={carouselData} itemComponent={Item} />
+    <GridCarousel customScrollbar={false} dots={true} carouselData={carouselData} itemComponent={Item} />
   )
 }
 ```
