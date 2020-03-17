@@ -4,7 +4,6 @@
   "command": {
     "version": {
       "ignoreChanges": [
-        "**/**/*.md",
         "**/**/*.story.js",
         "**/**/*.test.js",
         "**/__snapshots__/**"
