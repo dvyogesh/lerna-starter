@@ -162,8 +162,7 @@ const GridCarousel = ({...props }) => {
         numberOfCardsToShow
     }
 
-    return (
-        
+    return(
         <CarouselMainContainer {...settings}>
             <div className="carousel-row-wrapper" onMouseOver={rowMouseHover}>
                 <div
