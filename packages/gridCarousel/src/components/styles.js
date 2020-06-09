@@ -12,7 +12,7 @@ const CarouselMainContainer = styled.div`
         -ms-overflow-style: none;
         ::-webkit-scrollbar {
             display: none;
-          }
+        }
         .carousel-item{
             flex: 0 0 ${props => 100 / props.numberOfCardsToShow}%;
         }
