@@ -52,13 +52,23 @@ and pass your item into itemComponent prop
 ```javascript
 import React from 'react';
 import GridCarousel from '@yoge-shource/grid-carousel-react';
-const Item = ({item}) => (<div>{item.name}</div>);
-const carouselData = [{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'}];
-const Gallery = () => {
+const Item = ({item}) => (
+  <div style={{
+    height:'100px',
+    width: '98%',
+    border: '1px solid #ccc',
+    margin: '5px'
+  }}>
+    {item.name}
+  </div>
+);
+const carouselData = [{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'}]
+const CustomGridCarousel = () => {
   return (
     <GridCarousel customScrollbar={false} dots={true} carouselData={carouselData} itemComponent={Item} />
   )
 }
+
 ```
 
 #### -- OR --

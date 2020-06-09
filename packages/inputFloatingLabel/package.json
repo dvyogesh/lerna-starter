@@ -1,9 +1,9 @@
 {
-  "name": "@yoge-shource/grid-carousel-react",
-  "version": "0.1.10",
+  "name": "input-floating-label-react",
+  "version": "0.0.1",
   "description": "Example Button Component",
   "main": "dist/index.js",
-  "module": "src/index.jsx",
+  "module": "src/index.js",
   "author": "Yogesh DV",
   "private": false,
   "dependencies": {

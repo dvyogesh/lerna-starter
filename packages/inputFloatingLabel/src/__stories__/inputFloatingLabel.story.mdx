@@ -1,0 +1,36 @@
+
+import { Meta, Story, Preview, Props, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import InputFloatingLabel from '../';
+import gridCarouselMockData from '../../../../public/__mock__/gridCarouselMockData';
+import {
+  StyledMainPara, HeadingFourWrapper,
+  StyledSubPara, MessageWrappeStyle,
+  StoryWrapper
+  } from '../../../../public/styles/globalStyle';
+import {CodeWrapper, MessageWrapper} from '../../../../public/jsUtil/GlobalWrappers';
+import Table from '../../../../public/jsUtil/Table';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import styled from 'styled-components';
+import InputBasic from './components/InputBasic.mdx';
+
+// import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+<Meta title="Design System| Input Floating Label" component={InputFloatingLabel} />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+<Story name="Introduction">
+    <StoryWrapper>
+        <InputFloatingLabel label="Label" variant="standerd"/>
+    </StoryWrapper>
+</Story>
+
+<Story name="Standerd">
+  <InputFloatingLabel label="Standerd" variant="standerd"/>
+</Story>
+
+<Story name="Outlined">
+  <InputFloatingLabel label="Outlined" variant="outlined"/>
+</Story>
+

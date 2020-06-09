@@ -35,13 +35,14 @@ const TableStyleWrapper = styled.div`
             border-bottom: thin solid #e6e6e6;
         }
     }
-`
+`;
 const TableTdStyle = styled.td`
     width:${props => props.width}px;
     &:first-of-type {
         max-width:${props => props.width};
     }
-`
+`;
+
 export {
     TableStyleWrapper,
     TableTdStyle

@@ -4,6 +4,7 @@ const CarouselMainContainer = styled.div`
     position: relative;
     .carousel-row-wrapper{
         overflow: hidden;
+        position: relative;
     }
     .carousel-row {
         scroll-behavior: smooth;
@@ -68,13 +69,13 @@ const ArrowsMain = styled.div`
     cursor: pointer;
     border: 1px solid #dfe1e5;
     top: 50%;
+    transform: translateY(-50%);
     ${props=>props.left ? 'left:-1%;' : 'right: -1%;'}
     .arrow {
         width: 24px;
         height: 24px;
         margin: auto;
         line-height: 50px;
-        
         svg {
             font-size:16px;   
             color: #757575;

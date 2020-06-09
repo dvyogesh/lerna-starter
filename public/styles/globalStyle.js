@@ -16,7 +16,7 @@ code {
     padding: 1px 3px;
     margin-right: 2px;
 }
-`
+`;
 const StyledSubPara = styled(StyledMainPara)`
 font-size: 18px;
 line-height: 26px;
@@ -33,7 +33,7 @@ code {
     padding: 1px 3px;
     margin-right: 2px;
 }
-`
+`;
 const StypledCustomPara = styled(StyledMainPara)`
     ${props => `
         font-size: ${props.fontSize ? props.fontSize: 18 }px;
@@ -52,7 +52,7 @@ padding: 0;
 cursor: text;
 color: #333333;
 font-size: 20px;
-`
+`;
 
 const CodeWrapperStyle= styled.div`
 color: black;
@@ -85,7 +85,7 @@ overflow: auto;
     hyphens: none;
     font-size: 16px;
 }
-`
+`;
 
 const MessageWrappeStyle = styled.div`
     background-color: #ffa50094;
@@ -95,7 +95,11 @@ const MessageWrappeStyle = styled.div`
     padding: 15px;
     margin: 10px 0px;
     font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
-`
+`;
+
+const StoryWrapper = styled.div`
+    padding:10px;
+`;
 
 export {
     StyledMainPara,
@@ -103,5 +107,6 @@ export {
     CodeWrapperStyle,
     StyledSubPara,
     MessageWrappeStyle,
-    StypledCustomPara
+    StypledCustomPara,
+    StoryWrapper
 }
