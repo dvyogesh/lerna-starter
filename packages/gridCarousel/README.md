@@ -39,19 +39,21 @@ Mainly Every `div` has class so we can overide by using any parent class of app 
 ## Install
 
 ```bash
-$ npm install grid-carousel-react --save
+$ npm install @yoge-shource/grid-carousel-react --save
+
+$ yarn add @yoge-shource/grid-carousel-react
 ```
 
 ## Usage
 
-Just import the `GridCarousel` component from `grid-carousel-react`  
+Just import the `GridCarousel` component from `@yoge-shource/grid-carousel-react`  
 and pass your item into itemComponent prop 
 
 ```javascript
-import React from 'react'
-import GridCarousel from 'grid-carousel-react'
-const Item = ({item}) => (<div>{item.name}</div>)
-const carouselData = [{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'}]
+import React from 'react';
+import GridCarousel from '@yoge-shource/grid-carousel-react';
+const Item = ({item}) => (<div>{item.name}</div>);
+const carouselData = [{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'}];
 const Gallery = () => {
   return (
     <GridCarousel customScrollbar={false} dots={true} carouselData={carouselData} itemComponent={Item} />
@@ -63,13 +65,13 @@ const Gallery = () => {
 
 ##### Second Way
 
-Just import the `GridCarousel` component from `grid-carousel-react`  
+Just import the `GridCarousel` component from `@yoge-shource/grid-carousel-react`  
 and pass your item as childrens
 
 
 ```javascript
 import React from 'react'
-import GridCarousel from 'grid-carousel-react'
+import GridCarousel from '@yoge-shource/grid-carousel-react'
 const Item = (index) => (<div>{index}</div>)
 const carouselData = [{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'}]
 
