@@ -36,7 +36,7 @@ $ yarn add react-window-dimensions-hook
 Just import the `useWindowDimensions` component from `react-window-dimensions-hook`  
 
 ```javascript
-  import React, { useEffect } from 'react;
+  import React, { useEffect } from 'react';
   import useWindowDimensions from 'react-window-dimensions-hook';
   
   const WidthHeightExample = () => {
@@ -61,7 +61,7 @@ Just import the `useWindowDimensions` component from `react-window-dimensions-ho
 Just import the `useWindowDimensions` component from `react-window-dimensions-hook`  
 
 ```javascript
-  import React from 'react;
+  import React from 'react';
   import useWindowDimensions from 'react-window-dimensions-hook';
   const {width, height} = useWindowDimensions();
 
@@ -82,7 +82,7 @@ Just import the `useWindowDimensions` component from `react-window-dimensions-ho
 
 in this way we can avoid window undefined error while add `window.addEventListener`
 ```javascript
-  import React from 'react;
+  import React from 'react';
   import useWindowDimensions from 'react-window-dimensions-hook';
   const {width, height} = useWindowDimensions();
 

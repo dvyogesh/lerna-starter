@@ -29,7 +29,7 @@ $ yarn add handle-window-undefined
 Just import the `window` component from `handle-window-undefined`  
 
 ```javascript
-import window from 'handle-window-undefined;
+import window from 'handle-window-undefined';
 // we can access any function related to window object 
 // like window.addEventListener, window.matchMedia, window.location ...etc
     
@@ -46,7 +46,7 @@ and pass your item as childrens
 
 
 ```javascript
-import window from 'handle-window-undefined;
+import window from 'handle-window-undefined';
  
 window.document.body.innerHTML = '<div class="foo">Hi!</div>';
 window.document.body.querySelector('.foo').textContent;
@@ -58,7 +58,7 @@ window.document.body.querySelector('.foo').textContent;
 in this way we can avoid window undefined error while add `window.addEventListener`
 ```javascript
 import React,{useEffect} from 'react';
-import window from 'handle-window-undefined;
+import window from 'handle-window-undefined';
 
 const WindowExample = () => {
 

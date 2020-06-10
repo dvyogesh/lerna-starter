@@ -80,8 +80,8 @@ and pass your item as childrens
 
 
 ```javascript
-import React from 'react'
-import GridCarousel from '@yoge-shource/grid-carousel-react'
+import React from 'react';
+import GridCarousel from '@yoge-shource/grid-carousel-react';
 const Item = (index) => (<div>{index}</div>)
 const carouselData = [{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'},{name: 'item1'}]
 
@@ -138,7 +138,7 @@ page                                                        |
 
 ```javascript
 
-   import GridCarousel from '@yoge-shource/grid-carousel-react
+   import GridCarousel from '@yoge-shource/grid-carousel-react';
     
     <GridCarousel
       itemComponent={CarouselItem} // your component
@@ -163,7 +163,7 @@ sample
 
 ```javascript
 
-  import GridCarousel from '@yoge-shource/grid-carousel-react'
+  import GridCarousel from '@yoge-shource/grid-carousel-react';
     
     <GridCarousel carouselData={gridCarouselMockData} >
       {
@@ -234,7 +234,7 @@ import GridCarousel from '@yoge-shource/grid-carousel-react'
       carouselData={gridCarouselMockData}
     />
     
-    ---- OR ---- 
+   // ---- OR ---- 
    In Second Way
     
     <GridCarousel
@@ -260,7 +260,7 @@ To Customize Arrows or to add own arrows, need to pass `customArrows` prop.
 
 
 ```javascript
- import GridCarousel from '@yoge-shource/grid-carousel-react
+ import GridCarousel from '@yoge-shource/grid-carousel-react';
    
    import Arrow from '---your arrow---'
    
@@ -322,12 +322,12 @@ In first way of integration, We need to pass `itemComponent` and `carouselData` 
 
 ```javascript 
 
-   import GridCarousel from '@yoge-shource/grid-carousel-react
+   import GridCarousel from '@yoge-shource/grid-carousel-react'
    
     First Way
     
     <GridCarousel
-      autoPlay={true} --- here--
+      autoPlay={true} //--- here--
       itemComponent={CarouselItem} // your component
       carouselData={gridCarouselMockData}
     />
@@ -337,7 +337,7 @@ In first way of integration, We need to pass `itemComponent` and `carouselData` 
     
     <GridCarousel
       carouselData={gridCarouselMockData}
-       autoPlay={true} --- here--
+       autoPlay={true} //--- here--
       >
       {
         gridCarouselMockData.length > 0 && 
