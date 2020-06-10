@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import window from '../..';
+import {StyledMainPara, HeadingFourWrapper } from '../../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { MessageWrappeStyle, StyledSubPara } from '../../../../../public/styles/globalStyle';
+
+
+<Meta title="Design System| window handle" component={()=>""} />
+
+
+# handle window undefined Error 
+
+<div>
+  <MessageWrappeStyle>
+  `handle-window-undefined` npm module will resolves <span style={{color:'red'}}>
+  window undefined</span> or <span style={{color:'red'}}> undefined of window </span> and other window related errors
+  </MessageWrappeStyle>
+  <MessageWrappeStyle>
+  `handle-window-undefined` support SSR also
+  </MessageWrappeStyle>
+  <HeadingFourWrapper>To install handle-window-undefined</HeadingFourWrapper>
+  <SyntaxHighlighter>
+  {`npm i handle-window-undefined -S`}
+  </SyntaxHighlighter>
+  <HeadingFourWrapper>Simple Example::: Use by import like this</HeadingFourWrapper>
+  <CodeWrapper>
+    <div className="codeIn">
+    {  
+    `
+    import window from 'handle-window-undefined;
+    // we can access any function related to window object 
+    // like window.addEventListener, window.matchMedia, window.location ...etc
+    
+    console.log(window)
+    `}
+    </div>
+  </CodeWrapper>
+</div>
+
