@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowsMain } from './styles'
 const Arrows = ({ left, right, onClick, square }) => (
-    <ArrowsMain left={left} right={right} onClick={onClick} square={square}>
+    <ArrowsMain className={left ? 'arrow-left' : 'arrow-right'} left={left} right={right} onClick={onClick} square={square}>
         <div className="arrow">
             {
                 right && (

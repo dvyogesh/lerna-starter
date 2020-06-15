@@ -107,6 +107,40 @@ in this way we can avoid window undefined error while add `window.addEventListen
   export default WidthHeightExample;
 ```
 
+
+## ##### Simple DOM Example conditional Render SSR (server side rendering) react
+
+in this way we can avoid window undefined error while add `window.addEventListener`
+```javascript
+  import React, {useEffect, useState} from 'react';
+  import useWindowDimensions from 'react-window-dimensions-hook';
+
+  const WidthHeightExample = () => {
+      const [getWidth, setGetWidth] = useState();
+      const [getHeight, setGetHeight] = useState();
+      const {width, height} = useWindowDimensions();
+      useEffect(()=>{
+        setGetWidth(width);
+        setGetHeight(height);
+      }, [width, height])
+      return(<div>
+      {
+        getWidth > 768 && (
+          <p>width is ${ getWidth } </p>
+        )
+      }
+      
+      {
+        getHeight > 200 && (
+          <p>height greterthen 200</p>
+        )
+      }
+    </div>)
+  }
+
+  export default WidthHeightExample;
+```
+
 or visit https://dvyogesh.github.io/lerna-starter/?path=/story/design-system-windowdimensions--window-dimensions
 
 

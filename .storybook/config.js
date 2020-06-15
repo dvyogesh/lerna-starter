@@ -2,11 +2,6 @@ import React from 'react';
 import { configure, addParameters } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
-import { addDecorator } from '@storybook/react';
-import { withConsole } from '@storybook/addon-console';
-
-addDecorator((storyFn, context) => withConsole()(storyFn)(context));
-
 
 addParameters({
   docs: {
