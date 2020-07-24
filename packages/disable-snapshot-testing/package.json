@@ -1,6 +1,6 @@
 {
   "name": "disable-snapshot-testing",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Example Button Component",
   "main": "dist/index.js",
   "module": "src/index.js",
