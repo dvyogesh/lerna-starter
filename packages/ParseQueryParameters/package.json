@@ -1,16 +1,16 @@
 {
   "name": "parse-url-query-params",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Example Button Component",
   "main": "dist/index.js",
   "module": "src/index.js",
   "author": "Yogesh DV",
   "private": false,
   "dependencies": {
-    "parse-url-query-params": "^0.0.5",
-    "disable-snapshot-testing": "^0.0.4",
-    "handle-window-undefined": "^0.0.3",
-    "react-window-dimensions-hook": "^0.0.4"
+    "disable-snapshot-testing": "^0.0.5",
+    "handle-window-undefined": "^0.0.4",
+    "parse-url-query-params": "^0.0.6",
+    "react-window-dimensions-hook": "^0.0.5"
   },
   "publishConfig": {
     "access": "public"
