@@ -1,0 +1,28 @@
+
+import { Meta, Story, Preview, Props, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import DisableSnapshot from '../../';
+import {
+  StyledMainPara, HeadingFourWrapper,
+  StyledSubPara, MessageWrappeStyle,
+  StoryWrapper
+  } from '../../../../public/styles/globalStyle';
+import {CodeWrapper, MessageWrapper} from '../../../../public/jsUtil/GlobalWrappers';
+import Table from '../../../../public/jsUtil/Table';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import IntroDisableToSnap from './components/IntroDisableToSnap.mdx';
+
+
+// import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+<Meta title="Design System| Disable-Snapshot-Testing" component={DisableSnapshot} />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+<Story name="Introduction">
+  <IntroDisableToSnap/>
+</Story>
+
+
+
+

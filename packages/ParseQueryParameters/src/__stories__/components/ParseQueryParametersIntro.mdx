@@ -1,0 +1,66 @@
+
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import ParseQueryParameters from '../..';
+import {StyledMainPara, HeadingFourWrapper } from '../../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { MessageWrappeStyle, StyledSubPara } from '../../../../../public/styles/globalStyle';
+
+<Meta title="Design System| Parse Query Parameters" component={ParseQueryParameters} />
+
+# get window/viewPort width / height
+
+<div>
+    <HeadingFourWrapper>To install parseQueryParameters</HeadingFourWrapper>
+    <SyntaxHighlighter>
+    {`npm i parse-url-query-params -S`}
+    </SyntaxHighlighter>
+    <HeadingFourWrapper>Simple Example::: Use by import like this</HeadingFourWrapper>
+    <CodeWrapper>
+        <div className="codeIn">
+        {  
+        `
+        import parseQueryParameters from 'parse-url-query-params';
+        const prsedUrl = parseQueryParameters('http://localhost:3000/offers?offerID=1231sfwf21&local=FR');
+        console.log(prsedUrl)
+       `}
+       </div>
+    </CodeWrapper>
+        OutPut ::
+     <CodeWrapper>
+         <div className="codeIn">
+            {` 
+            {
+            "offerID":"1231sfwf21",
+            "local":"FR"
+            }`
+            }
+        </div>
+     </CodeWrapper>
+     In destrction way...
+      <CodeWrapper>
+          <div className="codeIn">
+                {`
+                const {offerID, local} = parseQueryParameters('http://localhost:3000/offers?offerID=1231sfwf21&local=FR');
+                
+                console.log('offerID');
+                console.log(offerID);
+                console.log('local');
+                console.log(local);
+                `
+                }
+            </div>
+        </CodeWrapper>
+         OutPut ::
+        <CodeWrapper>
+            <div className="codeIn">
+            {`
+                offerID
+                "1231sfwf21"
+                local
+                "FR"
+            `}
+        </div>
+    </CodeWrapper>
+</div>
+

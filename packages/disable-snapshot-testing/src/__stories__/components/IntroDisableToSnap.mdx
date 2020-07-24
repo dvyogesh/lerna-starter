@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import {StyledMainPara, HeadingFourWrapper } from '../../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+
+
+<Meta title="Design System| window handle" component={()=>""} />
+
+
+# disable-snapshot-testing eslint
+
+<div>
+  <SyntaxHighlighter>
+  {`npm i disable-snapshot-testing -S`}
+  </SyntaxHighlighter>
+  <StyledMainPara> Add `disable-snapshot-testing` to your `.eslintrc` file.</StyledMainPara>
+  <CodeWrapper>
+    <div className="codeIn">
+    {
+      `
+      {
+          "plugins": "no-snapshot-testing"
+      }
+      `
+    }
+    </div>
+  </CodeWrapper>
+  And
+  <CodeWrapper>
+    {
+       `
+      {
+          "rules": {"disable-snapshot-testing/disable-snapshot-testing": "error"}
+      }
+      `
+    }
+
+  </CodeWrapper>
+</div>
+

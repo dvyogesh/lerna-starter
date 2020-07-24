@@ -1,0 +1,23 @@
+{
+  "name": "disable-snapshot-testing",
+  "version": "0.0.3",
+  "description": "Example Button Component",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "author": "Yogesh DV",
+  "private": false,
+  "dependencies": {
+    "react": "^16.8.0",
+    "styled-components": "^5.0.1"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "no-snapshots",
+    "no-snapshot",
+    "jest"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
