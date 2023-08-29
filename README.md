@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-1. Clone the project: `git clone git@github.com:garmeeh/lerna-starter.git`
+1. Clone the project: `git clone git@github.com:dvyogesh/lerna-starter.git`
 2. Setup project: `npm install`
 3. Run `npm run start`
 
