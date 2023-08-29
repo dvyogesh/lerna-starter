@@ -1,0 +1,19 @@
+{
+  "name": "convert-fetch-to-curl",
+  "version": "0.0.1",
+  "description": "Example to convert fetch to curl",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "author": "Yogesh DV",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "disable-snapshot-testing": "^0.0.5",
+    "handle-window-undefined": "^0.0.4",
+    "parse-url-query-params": "^0.0.6",
+    "react-window-dimensions-hook": "^0.0.5"
+  },
+  "gitHead": "42ca3e2e3e1c1069597b68bebee80337e94e3f51"
+}

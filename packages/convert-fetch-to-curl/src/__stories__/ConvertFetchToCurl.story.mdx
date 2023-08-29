@@ -1,0 +1,74 @@
+
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import convertFetchToCurl from '../..';
+import {StyledMainPara, HeadingFourWrapper } from '../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../public/jsUtil/GlobalWrappers';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { MessageWrappeStyle, StyledSubPara } from '../../../../public/styles/globalStyle';
+
+<Meta title="Design System| convertFetchToCurl" component={convertFetchToCurl} />
+
+# Convert fetch request to curl
+<MessageWrappeStyle>
+    This package is verymuch helpfull to developers to find curl and disscuss when ever backend apis fails, we can check all params in single shot.
+    Use it to generate curl requests with the inputs you would usually use for javascripts fetch. However it does not patch any modules like http-to-curl. It is just a wrapper to generate the curl string. This ensures that there are no side effects with your actual usage of fetch.
+    Also note that the goal of this library is to be as simple and minimal as possible. This also means that there are zero dependencies :tada:
+</MessageWrappeStyle>
+
+
+## Installation
+
+<HeadingFourWrapper>To install onvert-fetch-to-curl</HeadingFourWrapper>
+<SyntaxHighlighter>
+{`yarn add convert-fetch-to-curl`}
+</SyntaxHighlighter>
+
+or
+
+<SyntaxHighlighter>
+    {`npm install convert-fetch-to-curl`}
+</SyntaxHighlighter>
+   
+
+## Usage
+
+```js
+import { convertFetchToCurl } from 'convert-fetch-to-curl';
+// or In case there is no support for Es Modules in your environment:
+// const { convertFetchToCurl } = require("convert-fetch-to-curl")
+
+const url = 'https://EXMPLE_URL/posts/1';
+const options = {
+  headers: {
+    Authorization: "BASIC SOMEBASE64STRING"
+  },
+  method: 'get'
+};
+// Log yopur request
+console.log(convertFetchToCurl(url, options));
+// Do your request
+fetch(url, options);
+
+// Output
+curl "https://EXMPLE_URL/posts/1" -X GET -H "Authorization: BASIC SOMEBASE64STRING"
+
+// You can also pass a single Request object 
+console.log(convertFetchToCurl({
+  url: "https://EXMPLE_URL/posts/1"
+  headers: {
+    Authorization: "BASIC SOMEBASE64STRING"
+  },
+  method: 'get'
+}));
+
+// and/or a Headers object as you would to with fetch
+console.log(convertFetchToCurl({
+  url: "https://EXMPLE_URL/posts/1"
+  headers: new Headers({
+    Authorization: "BASIC SOMEBASE64STRING"
+  }),
+  method: 'get'
+}))
+
+```
+

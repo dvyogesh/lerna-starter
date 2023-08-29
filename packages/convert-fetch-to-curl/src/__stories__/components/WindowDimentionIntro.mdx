@@ -1,0 +1,52 @@
+
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import useWindowDimensions from '../..';
+import {StyledMainPara, HeadingFourWrapper } from '../../../../../public/styles/globalStyle';
+import {CodeWrapper} from '../../../../../public/jsUtil/GlobalWrappers';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { MessageWrappeStyle, StyledSubPara } from '../../../../../public/styles/globalStyle';
+
+<Meta title="Design System| WindowDimensions" component={useWindowDimensions} />
+
+# get window/viewPort width / height
+
+<div>
+    <pre>width=<span style={{color:'red'}}>{useWindowDimensions().width}</span></pre>
+    <pre>height=<span style={{color:'red'}}>{useWindowDimensions().height}</span></pre>
+    <MessageWrappeStyle>
+        Resize the window to check width and height on Resize.
+    </MessageWrappeStyle>
+    <HeadingFourWrapper>To install useWindowDimensions</HeadingFourWrapper>
+    <SyntaxHighlighter>
+    {`npm i react-window-dimensions-hook -S`}
+    </SyntaxHighlighter>
+    <HeadingFourWrapper>Simple Example::: Use by import like this</HeadingFourWrapper>
+    <CodeWrapper>
+        <div className="codeIn">
+        {  
+        `
+        import React from 'react;
+        import useWindowDimensions from 'react-window-dimensions-hook';
+        const {width, height} = useWindowDimensions();
+        
+        console.log('width', width);
+        console.log('height', height);
+        const WidthHeightExample = () => (
+            <div>`
+        }
+        <div>{'           <p>width is ${ width } </p>'}</div>
+        <div>
+        {
+        `           {height>200 &&<p>height greterthen 200</p>}`
+        }
+        </div>
+        
+        {`          </div>
+        )
+        
+        export default WidthHeightExample;
+        `} 
+        </div>
+    </CodeWrapper>
+</div>
+
