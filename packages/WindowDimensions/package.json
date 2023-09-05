@@ -11,8 +11,21 @@
     "handle-window-undefined": "^0.0.5",
     "parse-url-query-params": "^0.0.7",
     "react": "^16.8.0",
-    "react-window-dimensions-hook": "^0.0.6"
+    "react-window-dimensions-hook": "^0.0.6",
+    "convert-fetch-to-curl": "^0.0.3"
   },
+  "files": [
+    "dist/index.js"
+  ],
+  "keywords": [
+    "react window dimensions hook",
+    "window dimensions hook",
+    "window dimensions",
+    "hook",
+    "react window dimensions width and height",
+    "window dimensions width and height",
+    "window width and height"
+  ],
   "publishConfig": {
     "access": "public"
   }
