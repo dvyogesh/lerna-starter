@@ -1,6 +1,6 @@
 {
   "name": "trymysolutions",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Example to convert fetch to curl",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -10,11 +10,11 @@
     "access": "public"
   },
   "dependencies": {
-    "convert-fetch-to-curl": "^0.0.3",
-    "disable-snapshot-testing": "^0.0.6",
-    "handle-window-undefined": "^0.0.5",
-    "parse-url-query-params": "^0.0.7",
-    "react-window-dimensions-hook": "^0.0.6"
+    "convert-fetch-to-curl": "^0.0.4",
+    "disable-snapshot-testing": "^0.0.7",
+    "handle-window-undefined": "^0.0.6",
+    "parse-url-query-params": "^0.0.8",
+    "react-window-dimensions-hook": "^0.0.7"
   },
   "files": [
     "dist/index.js"

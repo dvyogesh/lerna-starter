@@ -1,14 +1,14 @@
 {
   "name": "@yoge-shource/wireframe-ui",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Example Wireframe UI",
   "main": "dist/index.js",
   "module": "src/index.js",
   "author": "Yogesh DV",
   "private": false,
   "dependencies": {
-    "@yoge-shource/button": "^0.1.4",
-    "@yoge-shource/counter": "^0.1.6",
+    "@yoge-shource/button": "^0.1.5",
+    "@yoge-shource/counter": "^0.1.7",
     "react": "^16.8.0"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@yoge-shource/counter",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Example Counter Component",
   "main": "dist/index.js",
   "module": "src/index.js",

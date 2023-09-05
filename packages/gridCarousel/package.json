@@ -1,17 +1,17 @@
 {
   "name": "@yoge-shource/grid-carousel-react",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "Example Button Component",
   "main": "dist/index.js",
   "module": "src/index.jsx",
   "author": "Yogesh DV",
   "private": false,
   "dependencies": {
-    "disable-snapshot-testing": "^0.0.6",
-    "handle-window-undefined": "^0.0.5",
-    "parse-url-query-params": "^0.0.7",
+    "disable-snapshot-testing": "^0.0.7",
+    "handle-window-undefined": "^0.0.6",
+    "parse-url-query-params": "^0.0.8",
     "react": "^16.8.0",
-    "react-window-dimensions-hook": "^0.0.6",
+    "react-window-dimensions-hook": "^0.0.7",
     "styled-components": "^5.0.1"
   },
   "publishConfig": {

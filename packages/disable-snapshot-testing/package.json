@@ -1,17 +1,17 @@
 {
   "name": "disable-snapshot-testing",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Example Button Component",
   "main": "dist/index.js",
   "module": "src/index.js",
   "author": "Yogesh DV",
   "private": false,
   "dependencies": {
-    "disable-snapshot-testing": "^0.0.6",
-    "handle-window-undefined": "^0.0.5",
-    "parse-url-query-params": "^0.0.7",
+    "disable-snapshot-testing": "^0.0.7",
+    "handle-window-undefined": "^0.0.6",
+    "parse-url-query-params": "^0.0.8",
     "react": "^16.8.0",
-    "react-window-dimensions-hook": "^0.0.6"
+    "react-window-dimensions-hook": "^0.0.7"
   },
   "keywords": [
     "eslint",
