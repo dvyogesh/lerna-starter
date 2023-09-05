@@ -1,6 +1,6 @@
 {
-  "name": "convert-fetch-to-curl",
-  "version": "0.0.2",
+  "name": "trymysolutions",
+  "version": "0.0.1",
   "description": "Example to convert fetch to curl",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -13,23 +13,19 @@
     "disable-snapshot-testing": "^0.0.5",
     "handle-window-undefined": "^0.0.4",
     "parse-url-query-params": "^0.0.6",
-    "react-window-dimensions-hook": "^0.0.5"
+    "react-window-dimensions-hook": "^0.0.5",
+    "convert-fetch-to-curl": "^0.0.2"
   },
   "files": [
     "dist/index.js"
   ],
   "keywords": [
-    "log curl",
-    "fetch to curl",
     "curl",
     "fetch",
     "http",
     "request-http",
     "debug",
-    "react-native",
-    "form curl",
-    "create curl with fetch data",
-    "create curl with axios data"
+    "react-native"
   ],
   "gitHead": "42ca3e2e3e1c1069597b68bebee80337e94e3f51"
 }
