@@ -3,5 +3,6 @@
     "disable-snapshot-testing": "^0.0.4",
     "handle-window-undefined": "^0.0.3",
     "react-window-dimensions-hook": "^0.0.4",
-    "convert-fetch-to-curl": "0.0.1"
+    "convert-fetch-to-curl": "0.0.1",
+    "trymysolutions": "^0.0.3"
 }
